@@ -1,0 +1,1997 @@
+% Options for packages loaded elsewhere
+\PassOptionsToPackage{unicode}{hyperref}
+\PassOptionsToPackage{hyphens}{url}
+%
+\documentclass[
+]{article}
+\usepackage{amsmath,amssymb}
+\usepackage{iftex}
+\ifPDFTeX
+  \usepackage[T1]{fontenc}
+  \usepackage[utf8]{inputenc}
+  \usepackage{textcomp} % provide euro and other symbols
+\else % if luatex or xetex
+  \usepackage{unicode-math} % this also loads fontspec
+  \defaultfontfeatures{Scale=MatchLowercase}
+  \defaultfontfeatures[\rmfamily]{Ligatures=TeX,Scale=1}
+\fi
+\usepackage{lmodern}
+\ifPDFTeX\else
+  % xetex/luatex font selection
+\fi
+% Use upquote if available, for straight quotes in verbatim environments
+\IfFileExists{upquote.sty}{\usepackage{upquote}}{}
+\IfFileExists{microtype.sty}{% use microtype if available
+  \usepackage[]{microtype}
+  \UseMicrotypeSet[protrusion]{basicmath} % disable protrusion for tt fonts
+}{}
+\makeatletter
+\@ifundefined{KOMAClassName}{% if non-KOMA class
+  \IfFileExists{parskip.sty}{%
+    \usepackage{parskip}
+  }{% else
+    \setlength{\parindent}{0pt}
+    \setlength{\parskip}{6pt plus 2pt minus 1pt}}
+}{% if KOMA class
+  \KOMAoptions{parskip=half}}
+\makeatother
+\usepackage{xcolor}
+\usepackage[margin=1in]{geometry}
+\usepackage{color}
+\usepackage{fancyvrb}
+\newcommand{\VerbBar}{|}
+\newcommand{\VERB}{\Verb[commandchars=\\\{\}]}
+\DefineVerbatimEnvironment{Highlighting}{Verbatim}{commandchars=\\\{\}}
+% Add ',fontsize=\small' for more characters per line
+\usepackage{framed}
+\definecolor{shadecolor}{RGB}{248,248,248}
+\newenvironment{Shaded}{\begin{snugshade}}{\end{snugshade}}
+\newcommand{\AlertTok}[1]{\textcolor[rgb]{0.94,0.16,0.16}{#1}}
+\newcommand{\AnnotationTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\newcommand{\AttributeTok}[1]{\textcolor[rgb]{0.13,0.29,0.53}{#1}}
+\newcommand{\BaseNTok}[1]{\textcolor[rgb]{0.00,0.00,0.81}{#1}}
+\newcommand{\BuiltInTok}[1]{#1}
+\newcommand{\CharTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{#1}}
+\newcommand{\CommentTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textit{#1}}}
+\newcommand{\CommentVarTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\newcommand{\ConstantTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{#1}}
+\newcommand{\ControlFlowTok}[1]{\textcolor[rgb]{0.13,0.29,0.53}{\textbf{#1}}}
+\newcommand{\DataTypeTok}[1]{\textcolor[rgb]{0.13,0.29,0.53}{#1}}
+\newcommand{\DecValTok}[1]{\textcolor[rgb]{0.00,0.00,0.81}{#1}}
+\newcommand{\DocumentationTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\newcommand{\ErrorTok}[1]{\textcolor[rgb]{0.64,0.00,0.00}{\textbf{#1}}}
+\newcommand{\ExtensionTok}[1]{#1}
+\newcommand{\FloatTok}[1]{\textcolor[rgb]{0.00,0.00,0.81}{#1}}
+\newcommand{\FunctionTok}[1]{\textcolor[rgb]{0.13,0.29,0.53}{\textbf{#1}}}
+\newcommand{\ImportTok}[1]{#1}
+\newcommand{\InformationTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\newcommand{\KeywordTok}[1]{\textcolor[rgb]{0.13,0.29,0.53}{\textbf{#1}}}
+\newcommand{\NormalTok}[1]{#1}
+\newcommand{\OperatorTok}[1]{\textcolor[rgb]{0.81,0.36,0.00}{\textbf{#1}}}
+\newcommand{\OtherTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{#1}}
+\newcommand{\PreprocessorTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textit{#1}}}
+\newcommand{\RegionMarkerTok}[1]{#1}
+\newcommand{\SpecialCharTok}[1]{\textcolor[rgb]{0.81,0.36,0.00}{\textbf{#1}}}
+\newcommand{\SpecialStringTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{#1}}
+\newcommand{\StringTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{#1}}
+\newcommand{\VariableTok}[1]{\textcolor[rgb]{0.00,0.00,0.00}{#1}}
+\newcommand{\VerbatimStringTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{#1}}
+\newcommand{\WarningTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\usepackage{graphicx}
+\makeatletter
+\def\maxwidth{\ifdim\Gin@nat@width>\linewidth\linewidth\else\Gin@nat@width\fi}
+\def\maxheight{\ifdim\Gin@nat@height>\textheight\textheight\else\Gin@nat@height\fi}
+\makeatother
+% Scale images if necessary, so that they will not overflow the page
+% margins by default, and it is still possible to overwrite the defaults
+% using explicit options in \includegraphics[width, height, ...]{}
+\setkeys{Gin}{width=\maxwidth,height=\maxheight,keepaspectratio}
+% Set default figure placement to htbp
+\makeatletter
+\def\fps@figure{htbp}
+\makeatother
+\setlength{\emergencystretch}{3em} % prevent overfull lines
+\providecommand{\tightlist}{%
+  \setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}
+\setcounter{secnumdepth}{-\maxdimen} % remove section numbering
+\usepackage{pdfpages}
+\usepackage{graphicx}
+\usepackage{fancyhdr}
+\usepackage{tcolorbox}
+\usepackage{setspace}
+\usepackage{booktabs}
+\usepackage{longtable}
+\usepackage{array}
+\usepackage{multirow}
+\usepackage{wrapfig}
+\usepackage{float}
+\usepackage{colortbl}
+\usepackage{pdflscape}
+\usepackage{tabu}
+\usepackage{threeparttable}
+\usepackage{threeparttablex}
+\usepackage[normalem]{ulem}
+\usepackage{makecell}
+\usepackage{xcolor}
+\usepackage{multicol}
+\usepackage{hhline}
+\newlength\Oldarrayrulewidth
+\newlength\Oldtabcolsep
+\usepackage{hyperref}
+\ifLuaTeX
+  \usepackage{selnolig}  % disable illegal ligatures
+\fi
+\IfFileExists{bookmark.sty}{\usepackage{bookmark}}{\usepackage{hyperref}}
+\IfFileExists{xurl.sty}{\usepackage{xurl}}{} % add URL line breaks if available
+\urlstyle{same}
+\hypersetup{
+  hidelinks,
+  pdfcreator={LaTeX via pandoc}}
+
+\author{}
+\date{\vspace{-2.5em}}
+
+\begin{document}
+
+{
+\setcounter{tocdepth}{6}
+\tableofcontents
+}
+\includepdf{page_de_garde}
+\newpage
+\renewcommand{\contentsname}{\textcolor{blue}{Table des matières}}
+
+\textcolor{blue}{\tableofcontents}
+
+\hypertarget{partie-1}{%
+\section{PARTIE 1}\label{partie-1}}
+
+\hypertarget{bibliothuxe8ques-necessaires}{%
+\subsection{bibliothèques
+necessaires}\label{bibliothuxe8ques-necessaires}}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{library}\NormalTok{(readxl)   }\DocumentationTok{\#\# Importer des fichiers avec extenxion xlsx}
+\FunctionTok{library}\NormalTok{(gtsummary) }\DocumentationTok{\#\# importer gtsummary}
+\FunctionTok{library}\NormalTok{(}\StringTok{"dplyr"}\NormalTok{)}
+\FunctionTok{library}\NormalTok{(flextable)}
+\FunctionTok{library}\NormalTok{(leaflet) }\DocumentationTok{\#\# creation de la carte}
+\FunctionTok{library}\NormalTok{(sf)       }\DocumentationTok{\#\# pour la cartographie}
+\FunctionTok{library}\NormalTok{(rnaturalearth)  }\DocumentationTok{\#\# Importer les données cartographique}
+\FunctionTok{library}\NormalTok{(sp)}
+\FunctionTok{library}\NormalTok{(kableExtra)         }\DocumentationTok{\#\# Faire sortir les tableau sous forme de tableau}
+\FunctionTok{library}\NormalTok{(knitr)}
+\FunctionTok{library}\NormalTok{(htmlwidgets)        }\DocumentationTok{\#\# Creer des fichiers sous extension htlm}
+\FunctionTok{library}\NormalTok{(webshot)            }\DocumentationTok{\#\# Faire la capture d\textquotesingle{}écran suivant le format d\textquotesingle{}mage souhaité}
+\FunctionTok{library}\NormalTok{(}\StringTok{"lubridate"}\NormalTok{)       }\DocumentationTok{\#\# gestion des dates}
+\FunctionTok{library}\NormalTok{(ggplot2)          }\DocumentationTok{\#\# tracé des graphes}
+\FunctionTok{library}\NormalTok{(ggExtra)          }\CommentTok{\#}
+\FunctionTok{library}\NormalTok{(nnet)}
+\FunctionTok{library}\NormalTok{(GGally)}
+\FunctionTok{library}\NormalTok{(effects) }
+\FunctionTok{library}\NormalTok{(gridExtra)}
+\FunctionTok{library}\NormalTok{(forcats)}
+\end{Highlighting}
+\end{Shaded}
+
+\hypertarget{pruxe9paration-des-donnuxe9es}{%
+\subsection{1- Préparation des
+données}\label{pruxe9paration-des-donnuxe9es}}
+
+\hypertarget{description}{%
+\subsubsection{1.1 Description}\label{description}}
+
+\hypertarget{importation-et-mise-en-forme}{%
+\subsubsection{1.2 Importation et mise en
+forme}\label{importation-et-mise-en-forme}}
+
+\hypertarget{importer-la-base-de-donnuxe9es-dans-un-objet-de-type-data.frame-nommuxe9-projet}{%
+\subsubsection{1.2.1 Importer la base de données dans un objet de type
+data.frame nommé
+projet}\label{importer-la-base-de-donnuxe9es-dans-un-objet-de-type-data.frame-nommuxe9-projet}}
+
+On importe la librairies readlx pour importer la base excel
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{projet }\OtherTok{\textless{}{-}} \FunctionTok{read\_excel}\NormalTok{(}\StringTok{"Base\_Partie 1.xlsx"}\NormalTok{,}
+                   \AttributeTok{range =} \ConstantTok{NULL}\NormalTok{,}
+                  \AttributeTok{col\_names =} \ConstantTok{TRUE}\NormalTok{,}
+                   \AttributeTok{col\_types =} \ConstantTok{NULL}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\hypertarget{selection-les-variables-mentionnees-dans-la-section-description.}{%
+\subsubsection{1.2.2 Selection les variables mentionnees dans la section
+description.}\label{selection-les-variables-mentionnees-dans-la-section-description.}}
+
+Ici on a plus besoin de sélectionner les variables puisqu'elle sont déja
+sélectionner lors de l'importation de la base.
+
+\hypertarget{faites-un-tableau-qui-resume-les-valeurs-manquantes-par-variable}{%
+\subsubsection{1.2.3 Faites un tableau qui resume les valeurs manquantes
+par
+variable}\label{faites-un-tableau-qui-resume-les-valeurs-manquantes-par-variable}}
+
+Il est important d'importer la librairie dplyr
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{val\_manque}\OtherTok{\textless{}{-}}\FunctionTok{data.frame}\NormalTok{(}\AttributeTok{nbre\_valeur\_manquantes=}\FunctionTok{colSums}\NormalTok{(}\FunctionTok{is.na}\NormalTok{(projet)),}
+                  \AttributeTok{proportion=}\FunctionTok{colSums}\NormalTok{(}\FunctionTok{is.na}\NormalTok{(projet))}\SpecialCharTok{*}\DecValTok{100}\SpecialCharTok{/}\FunctionTok{nrow}\NormalTok{(projet))}\SpecialCharTok{\%\textgreater{}\%}  
+\NormalTok{                 dplyr}\SpecialCharTok{::}\FunctionTok{mutate}\NormalTok{(}\AttributeTok{proportion=}\FunctionTok{paste0}\NormalTok{(proportion, }\StringTok{"\%"}\NormalTok{))}
+
+\FunctionTok{kable}\NormalTok{(val\_manque, }\AttributeTok{format=}\StringTok{"latex"}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{tabular}{l|r|l}
+\hline
+  & nbre\_valeur\_manquantes & proportion\\
+\hline
+key & 0 & 0\%\\
+\hline
+q1 & 0 & 0\%\\
+\hline
+q2 & 0 & 0\%\\
+\hline
+q23 & 0 & 0\%\\
+\hline
+q24 & 0 & 0\%\\
+\hline
+q24a\_1 & 0 & 0\%\\
+\hline
+q24a\_2 & 0 & 0\%\\
+\hline
+q24a\_3 & 0 & 0\%\\
+\hline
+q24a\_4 & 0 & 0\%\\
+\hline
+q24a\_5 & 0 & 0\%\\
+\hline
+q24a\_6 & 0 & 0\%\\
+\hline
+q24a\_7 & 0 & 0\%\\
+\hline
+q24a\_9 & 0 & 0\%\\
+\hline
+q24a\_10 & 0 & 0\%\\
+\hline
+q25 & 0 & 0\%\\
+\hline
+q26 & 0 & 0\%\\
+\hline
+q12 & 0 & 0\%\\
+\hline
+q14b & 1 & 0.4\%\\
+\hline
+q16 & 1 & 0.4\%\\
+\hline
+q17 & 131 & 52.4\%\\
+\hline
+q19 & 120 & 48\%\\
+\hline
+q20 & 0 & 0\%\\
+\hline
+filiere\_1 & 0 & 0\%\\
+\hline
+filiere\_2 & 0 & 0\%\\
+\hline
+filiere\_3 & 0 & 0\%\\
+\hline
+filiere\_4 & 0 & 0\%\\
+\hline
+q8 & 0 & 0\%\\
+\hline
+q81 & 0 & 0\%\\
+\hline
+gps\_menlatitude & 0 & 0\%\\
+\hline
+gps\_menlongitude & 0 & 0\%\\
+\hline
+submissiondate & 0 & 0\%\\
+\hline
+start & 0 & 0\%\\
+\hline
+today & 0 & 0\%\\
+\hline
+\end{tabular}
+
+\hypertarget{valeurs-manquantes-pour-la-variable-key}{%
+\subsubsection{1.2.4 Valeurs manquantes pour la variable
+key}\label{valeurs-manquantes-pour-la-variable-key}}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{PME\_manquant}\OtherTok{\textless{}{-}}\NormalTok{projet }\SpecialCharTok{\%\textgreater{}\%} \FunctionTok{filter}\NormalTok{(key}\SpecialCharTok{==}\StringTok{"NA"}\NormalTok{)}
+\FunctionTok{kable}\NormalTok{(PME\_manquant[,}\DecValTok{1}\SpecialCharTok{:}\DecValTok{6}\NormalTok{])}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{tabular}{l|l|l|l|r|r}
+\hline
+key & q1 & q2 & q23 & q24 & q24a\_1\\
+
+
+\hline
+\end{tabular}
+
+\hypertarget{cruxe9ation-de-variables}{%
+\subsection{1.3 Création de variables}\label{cruxe9ation-de-variables}}
+
+\hypertarget{renommer-les-variables}{%
+\subsubsection{1.3.1 Renommer les
+variables}\label{renommer-les-variables}}
+
+Renommer q1 en region,q2 en departement,q23 en sexe
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{projet }\OtherTok{\textless{}{-}}\NormalTok{projet }\SpecialCharTok{\%\textgreater{}\%}\NormalTok{ dplyr}\SpecialCharTok{::}\FunctionTok{rename}\NormalTok{(}\AttributeTok{region=}\NormalTok{q1,}\AttributeTok{departement=}\NormalTok{q2,}\AttributeTok{sexe=}\NormalTok{q23)}
+\end{Highlighting}
+\end{Shaded}
+
+\hypertarget{cruxe9er-la-variable-sexe_2-qui-vaut-1-si-sexe-uxe9gale-uxe0-femme-et-0-sinon.}{%
+\subsubsection{1.3.2 Créer la variable sexe\_2 qui vaut 1 si sexe égale
+à Femme et 0
+sinon.}\label{cruxe9er-la-variable-sexe_2-qui-vaut-1-si-sexe-uxe9gale-uxe0-femme-et-0-sinon.}}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{projet}\SpecialCharTok{$}\NormalTok{sexe\_2 }\OtherTok{\textless{}{-}} \FunctionTok{ifelse}\NormalTok{(projet}\SpecialCharTok{$}\NormalTok{sexe }\SpecialCharTok{==} \StringTok{"Femme"}\NormalTok{, }\DecValTok{1}\NormalTok{,}\DecValTok{0}\NormalTok{ )}
+
+\DocumentationTok{\#\# Placer la nouvelle variable créer près de la variable sexe}
+\NormalTok{projet }\OtherTok{\textless{}{-}}\NormalTok{ projet}\SpecialCharTok{\%\textgreater{}\%} \FunctionTok{relocate}\NormalTok{(sexe\_2, }\AttributeTok{.after =}\NormalTok{ sexe)}
+
+\CommentTok{\# affichage}
+\FunctionTok{kable}\NormalTok{(projet[}\DecValTok{1}\SpecialCharTok{:}\DecValTok{3}\NormalTok{,}\DecValTok{1}\SpecialCharTok{:}\DecValTok{6}\NormalTok{],}\AttributeTok{format=}\StringTok{"latex"}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{tabular}{l|l|l|l|r|r}
+\hline
+key & region & departement & sexe & sexe\_2 & q24\\
+\hline
+uuid:68bff42b-1228-4c66-9bcc-e6d312d9fea6 & Diourbel & Bambey & Femme & 1 & 65\\
+\hline
+uuid:d70b3c7e-3ca0-4358-bc59-3f7f6baf55e9 & Thiès & Mbour & Femme & 1 & 52\\
+\hline
+uuid:0ac18b64-7d85-4bb9-a842-698ac79909af & Thiès & Mbour & Femme & 1 & 65\\
+\hline
+\end{tabular}
+
+\hypertarget{cruxe9er-un-data.frame-nommuxe9-langues-qui-prend-les-variables-key-et-les-variables-correspondantes-duxe9crites-plus-haut.}{%
+\subsubsection{1.3.3 Créer un data.frame nommé langues qui prend les
+variables key et les variables correspondantes décrites plus
+haut.}\label{cruxe9er-un-data.frame-nommuxe9-langues-qui-prend-les-variables-key-et-les-variables-correspondantes-duxe9crites-plus-haut.}}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{langues}\OtherTok{\textless{}{-}}\NormalTok{projet }\SpecialCharTok{\%\textgreater{}\%}\NormalTok{ dplyr}\SpecialCharTok{::}\FunctionTok{select}\NormalTok{(key,}\FunctionTok{starts\_with}\NormalTok{(}\StringTok{"q24a\_"}\NormalTok{))}
+\FunctionTok{kable}\NormalTok{(langues[}\DecValTok{1}\SpecialCharTok{:}\DecValTok{5}\NormalTok{,}\DecValTok{1}\SpecialCharTok{:}\DecValTok{6}\NormalTok{],}\AttributeTok{format=}\StringTok{"latex"}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{tabular}{l|r|r|r|r|r}
+\hline
+key & q24a\_1 & q24a\_2 & q24a\_3 & q24a\_4 & q24a\_5\\
+\hline
+uuid:68bff42b-1228-4c66-9bcc-e6d312d9fea6 & 0 & 1 & 0 & 1 & 0\\
+\hline
+uuid:d70b3c7e-3ca0-4358-bc59-3f7f6baf55e9 & 1 & 1 & 0 & 0 & 1\\
+\hline
+uuid:0ac18b64-7d85-4bb9-a842-698ac79909af & 1 & 1 & 0 & 0 & 0\\
+\hline
+uuid:c52cf5e4-8c28-4e65-998b-3fe2a971a1a3 & 1 & 1 & 0 & 0 & 1\\
+\hline
+uuid:ac177870-001c-4ada-8747-c22ffe4e4596 & 1 & 1 & 1 & 0 & 0\\
+\hline
+\end{tabular}
+
+\hypertarget{cruxe9er-une-variable-parle-qui-est-uxe9gale-au-nombre-de-langue-parluxe9e-par-le-dirigeant-de-la-pme.}{%
+\subsubsection{1.3.4 Créer une variable parle qui est égale au nombre de
+langue parlée par le dirigeant de la
+PME.}\label{cruxe9er-une-variable-parle-qui-est-uxe9gale-au-nombre-de-langue-parluxe9e-par-le-dirigeant-de-la-pme.}}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{langues}\SpecialCharTok{$}\NormalTok{parle}\OtherTok{\textless{}{-}}\FunctionTok{rowSums}\NormalTok{(langues[, }\SpecialCharTok{{-}}\DecValTok{1}\NormalTok{])}
+\FunctionTok{unlist}\NormalTok{(}\FunctionTok{colnames}\NormalTok{(langues))}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+##  [1] "key"     "q24a_1"  "q24a_2"  "q24a_3"  "q24a_4"  "q24a_5"  "q24a_6" 
+##  [8] "q24a_7"  "q24a_9"  "q24a_10" "parle"
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{kable}\NormalTok{(langues[}\DecValTok{1}\SpecialCharTok{:}\DecValTok{5}\NormalTok{,}\DecValTok{2}\SpecialCharTok{:}\DecValTok{11}\NormalTok{],}\AttributeTok{format=}\StringTok{"latex"}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{tabular}{r|r|r|r|r|r|r|r|r|r}
+\hline
+q24a\_1 & q24a\_2 & q24a\_3 & q24a\_4 & q24a\_5 & q24a\_6 & q24a\_7 & q24a\_9 & q24a\_10 & parle\\
+\hline
+0 & 1 & 0 & 1 & 0 & 0 & 0 & 0 & 0 & 2\\
+\hline
+1 & 1 & 0 & 0 & 1 & 0 & 0 & 0 & 0 & 3\\
+\hline
+1 & 1 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 2\\
+\hline
+1 & 1 & 0 & 0 & 1 & 0 & 0 & 0 & 0 & 3\\
+\hline
+1 & 1 & 1 & 0 & 0 & 1 & 0 & 0 & 0 & 4\\
+\hline
+\end{tabular}
+
+\hypertarget{merger-les-data.frame-projet-et-langues}{%
+\subsubsection{1.3.5 Merger les data.frame projet et
+langues}\label{merger-les-data.frame-projet-et-langues}}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{Final}\OtherTok{\textless{}{-}}\FunctionTok{merge}\NormalTok{(projet, langues, }\AttributeTok{by =} \StringTok{"key"}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\hypertarget{analyses-descriptives}{%
+\subsection{2 Analyses descriptives}\label{analyses-descriptives}}
+
+\hypertarget{repartition-des-pme}{%
+\subsubsection{2.1 Repartition des PME}\label{repartition-des-pme}}
+
+repartition par sexe, niveau d'instruction et statut juridique: Nous
+allons importer la bibliothèque gtsummary.
+
+dans notre base nous avons 250 PME , dont 76\% des dirigeants sont des
+femmes contre 24\% dirigeants hommes.
+
+s
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{f}\OtherTok{\textless{}{-}}\NormalTok{Final }\SpecialCharTok{\%\textgreater{}\%}
+   \FunctionTok{tbl\_summary}\NormalTok{(}
+                  \AttributeTok{label =} \FunctionTok{c}\NormalTok{(q25 }\SpecialCharTok{\textasciitilde{}} \StringTok{"Niveau d\textquotesingle{}inst"}\NormalTok{,}
+\NormalTok{                  q12}\SpecialCharTok{\textasciitilde{}}\StringTok{"Statut juridique"}\NormalTok{,}
+\NormalTok{                  q81}\SpecialCharTok{\textasciitilde{}}\StringTok{"Propriétaire "}\NormalTok{),}
+                  \AttributeTok{include=}\FunctionTok{c}\NormalTok{(}\StringTok{"sexe"}\NormalTok{,}\StringTok{"q25"}\NormalTok{,}\StringTok{"q12"}\NormalTok{,}\StringTok{"q81"}\NormalTok{),}
+                  \AttributeTok{missing=}\StringTok{"no"}\NormalTok{ ) }\SpecialCharTok{\%\textgreater{}\%} 
+   \FunctionTok{modify\_header}\NormalTok{(}
+    \FunctionTok{list}\NormalTok{(}
+\NormalTok{      label }\SpecialCharTok{\textasciitilde{}} \StringTok{"Variable"}\NormalTok{,}
+      \FunctionTok{all\_stat\_cols}\NormalTok{(}\AttributeTok{stat\_0 =} \ConstantTok{FALSE}\NormalTok{) }\SpecialCharTok{\textasciitilde{}} \StringTok{"\_\{level\}\_ (n=\{n\}, \{style\_percent(p)\}\%)"}\NormalTok{,}
+\NormalTok{      stat\_0 }\SpecialCharTok{\textasciitilde{}} \StringTok{"TOTAL =\{N\}"}
+\NormalTok{    )}
+\NormalTok{  ) }
+\end{Highlighting}
+\end{Shaded}
+
+\hypertarget{grand-tableau-de-fusion}{%
+\subsubsection{2.1 Grand tableau de
+fusion}\label{grand-tableau-de-fusion}}
+
+Ici nous allons tout d'abord creer 04 tableaux avec gtsummary qui nous
+donne la repartion suivant les filières croisé avec le genre . Nous
+allons par la suite merger ces 04 tableaux avec la fonction tbl\_merge.
+
+tableau de la filière d'arachide
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{t1}\OtherTok{\textless{}{-}}\NormalTok{Final }\SpecialCharTok{\%\textgreater{}\%}
+\NormalTok{  dplyr}\SpecialCharTok{::}\FunctionTok{filter}\NormalTok{(filiere\_1}\SpecialCharTok{==}\StringTok{"1"}\NormalTok{) }\SpecialCharTok{\%\textgreater{}\%} 
+  \FunctionTok{mutate}\NormalTok{(}\AttributeTok{filiere\_1 =} \FunctionTok{recode}\NormalTok{(filiere\_1, }\StringTok{\textasciigrave{}}\AttributeTok{1}\StringTok{\textasciigrave{}} \OtherTok{=} \StringTok{"fil d\textquotesingle{}arachide"}\NormalTok{)) }\SpecialCharTok{\%\textgreater{}\%}
+\NormalTok{  dplyr}\SpecialCharTok{::}\FunctionTok{select}\NormalTok{(sexe, q25, q12, q81) }\SpecialCharTok{\%\textgreater{}\%}
+\NormalTok{        gtsummary}\SpecialCharTok{::}\FunctionTok{tbl\_summary}\NormalTok{(}
+      \AttributeTok{label =} \FunctionTok{list}\NormalTok{(q25 }\SpecialCharTok{\textasciitilde{}} \StringTok{"Niveau d\textquotesingle{}inst"}\NormalTok{,q12 }\SpecialCharTok{\textasciitilde{}} \StringTok{"Statut juridique"}\NormalTok{,}
+\NormalTok{            q81 }\SpecialCharTok{\textasciitilde{}} \StringTok{"Propriétaire "}\NormalTok{,sexe}\SpecialCharTok{\textasciitilde{}}\StringTok{"sexe"}\NormalTok{),}
+          \AttributeTok{missing =} \StringTok{"no"}
+\NormalTok{        ) }\SpecialCharTok{\%\textgreater{}\%} \FunctionTok{modify\_header}\NormalTok{(}\AttributeTok{label =} \StringTok{"**Variable**"}\NormalTok{) }\SpecialCharTok{\%\textgreater{}\%} 
+  \FunctionTok{bold\_labels}\NormalTok{()}
+\end{Highlighting}
+\end{Shaded}
+
+Tableau filiere de l'anarcarde
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{t2}\OtherTok{\textless{}{-}}\NormalTok{Final }\SpecialCharTok{\%\textgreater{}\%}
+\NormalTok{  dplyr}\SpecialCharTok{::}\FunctionTok{filter}\NormalTok{(filiere\_2}\SpecialCharTok{==}\StringTok{"1"}\NormalTok{) }\SpecialCharTok{\%\textgreater{}\%} 
+  \FunctionTok{mutate}\NormalTok{(}\AttributeTok{filiere\_2 =} \FunctionTok{recode}\NormalTok{(filiere\_2, }\StringTok{\textasciigrave{}}\AttributeTok{1}\StringTok{\textasciigrave{}} \OtherTok{=} \StringTok{"fil d\textquotesingle{}anacarde"}\NormalTok{)) }\SpecialCharTok{\%\textgreater{}\%}
+\NormalTok{  dplyr}\SpecialCharTok{::}\FunctionTok{select}\NormalTok{(sexe, q25, q12, q81) }\SpecialCharTok{\%\textgreater{}\%}
+\NormalTok{  gtsummary}\SpecialCharTok{::}\FunctionTok{tbl\_summary}\NormalTok{(}
+    \AttributeTok{label =} \FunctionTok{list}\NormalTok{(q25 }\SpecialCharTok{\textasciitilde{}} \StringTok{"Niveau d\textquotesingle{}inst"}\NormalTok{,q12 }\SpecialCharTok{\textasciitilde{}} \StringTok{"Statut juridique"}\NormalTok{,}
+\NormalTok{            q81 }\SpecialCharTok{\textasciitilde{}} \StringTok{"Propriétaire "}\NormalTok{,sexe}\SpecialCharTok{\textasciitilde{}}\StringTok{"sexe"}\NormalTok{),}
+          \AttributeTok{missing =} \StringTok{"no"}
+\NormalTok{        ) }\SpecialCharTok{\%\textgreater{}\%} \FunctionTok{modify\_header}\NormalTok{(}\AttributeTok{label =} \StringTok{"**Variable**"}\NormalTok{) }\SpecialCharTok{\%\textgreater{}\%} 
+  \FunctionTok{bold\_labels}\NormalTok{()}
+\end{Highlighting}
+\end{Shaded}
+
+Tableau filiere mangue
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{t3}\OtherTok{\textless{}{-}}\NormalTok{Final }\SpecialCharTok{\%\textgreater{}\%}
+\NormalTok{  dplyr}\SpecialCharTok{::}\FunctionTok{filter}\NormalTok{(filiere\_3}\SpecialCharTok{==}\StringTok{"1"}\NormalTok{) }\SpecialCharTok{\%\textgreater{}\%} 
+  \FunctionTok{mutate}\NormalTok{(}\AttributeTok{filiere\_3=} \FunctionTok{recode}\NormalTok{(filiere\_3, }\StringTok{\textasciigrave{}}\AttributeTok{1}\StringTok{\textasciigrave{}} \OtherTok{=} \StringTok{"fil de mangue"}\NormalTok{)) }\SpecialCharTok{\%\textgreater{}\%}
+\NormalTok{  dplyr}\SpecialCharTok{::}\FunctionTok{select}\NormalTok{(sexe, q25, q12, q81) }\SpecialCharTok{\%\textgreater{}\%}
+\NormalTok{  gtsummary}\SpecialCharTok{::}\FunctionTok{tbl\_summary}\NormalTok{(}
+      \AttributeTok{label =} \FunctionTok{list}\NormalTok{(q25 }\SpecialCharTok{\textasciitilde{}} \StringTok{"Niveau d\textquotesingle{}inst"}\NormalTok{,q12 }\SpecialCharTok{\textasciitilde{}} \StringTok{"Statut juridique"}\NormalTok{,}
+\NormalTok{            q81 }\SpecialCharTok{\textasciitilde{}} \StringTok{"Propriétaire "}\NormalTok{,sexe}\SpecialCharTok{\textasciitilde{}}\StringTok{"sexe"}\NormalTok{),}
+          \AttributeTok{missing =} \StringTok{"no"}
+\NormalTok{        ) }\SpecialCharTok{\%\textgreater{}\%} \FunctionTok{modify\_header}\NormalTok{(}\AttributeTok{label =} \StringTok{"**Variable**"}\NormalTok{) }\SpecialCharTok{\%\textgreater{}\%} 
+  \FunctionTok{bold\_labels}\NormalTok{()}
+\end{Highlighting}
+\end{Shaded}
+
+Tableau filière Riz
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{t4}\OtherTok{\textless{}{-}}\NormalTok{Final }\SpecialCharTok{\%\textgreater{}\%}
+\NormalTok{  dplyr}\SpecialCharTok{::}\FunctionTok{filter}\NormalTok{(filiere\_4}\SpecialCharTok{==}\StringTok{"1"}\NormalTok{) }\SpecialCharTok{\%\textgreater{}\%} 
+  \FunctionTok{mutate}\NormalTok{(}\AttributeTok{filiere\_4=} \FunctionTok{recode}\NormalTok{(filiere\_4, }\StringTok{\textasciigrave{}}\AttributeTok{1}\StringTok{\textasciigrave{}} \OtherTok{=} \StringTok{"fil anacarde"}\NormalTok{)) }\SpecialCharTok{\%\textgreater{}\%}
+\NormalTok{  dplyr}\SpecialCharTok{::}\FunctionTok{select}\NormalTok{(sexe, q25, q12, q81) }\SpecialCharTok{\%\textgreater{}\%}
+\NormalTok{  gtsummary}\SpecialCharTok{::}\FunctionTok{tbl\_summary}\NormalTok{(}
+      \AttributeTok{label =} \FunctionTok{list}\NormalTok{(q25 }\SpecialCharTok{\textasciitilde{}} \StringTok{"Niveau d\textquotesingle{}inst"}\NormalTok{,q12 }\SpecialCharTok{\textasciitilde{}} \StringTok{"Statut juridique"}\NormalTok{,}
+\NormalTok{            q81 }\SpecialCharTok{\textasciitilde{}} \StringTok{"Propriétaire "}\NormalTok{,sexe}\SpecialCharTok{\textasciitilde{}}\StringTok{"sexe"}\NormalTok{),}
+          \AttributeTok{missing =} \StringTok{"no"}
+\NormalTok{        ) }\SpecialCharTok{\%\textgreater{}\%} \FunctionTok{modify\_header}\NormalTok{(}\AttributeTok{label =} \StringTok{"**Variable**"}\NormalTok{) }\SpecialCharTok{\%\textgreater{}\%} \FunctionTok{bold\_labels}\NormalTok{()}
+\end{Highlighting}
+\end{Shaded}
+
+Tableau merger
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{tbl\_merge}\NormalTok{(}
+  \FunctionTok{list}\NormalTok{(t1,t2,t3,t4,f),}
+  \AttributeTok{tab\_spanner =} \FunctionTok{c}\NormalTok{(}\StringTok{"**Fil d\textquotesingle{}arachide**"}\NormalTok{,}
+                  \StringTok{"**fil anacarde**"}\NormalTok{,}\StringTok{"**Fil mangue**"}\NormalTok{,}
+                  \StringTok{"**fil riz**"}\NormalTok{,}\StringTok{"**Total**"}\NormalTok{)}
+\NormalTok{                  )}\SpecialCharTok{\%\textgreater{}\%} \FunctionTok{as\_flex\_table}\NormalTok{()}\SpecialCharTok{\%\textgreater{}\%} 
+  \FunctionTok{width}\NormalTok{(}\AttributeTok{width=}\DecValTok{1}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\global\setlength{\Oldarrayrulewidth}{\arrayrulewidth}
+
+\global\setlength{\Oldtabcolsep}{\tabcolsep}
+
+\setlength{\tabcolsep}{0pt}
+
+\renewcommand*{\arraystretch}{1.5}
+
+
+
+\providecommand{\ascline}[3]{\noalign{\global\arrayrulewidth #1}\arrayrulecolor[HTML]{#2}\cline{#3}}
+
+\begin{longtable}[c]{|p{1.00in}|p{1.00in}|p{1.00in}|p{1.00in}|p{1.00in}|p{1.00in}}
+
+
+
+\ascline{1pt}{000000}{1-6}
+
+\multicolumn{1}{>{\raggedright}m{\dimexpr 1in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{\ }}} & \multicolumn{1}{>{\centering}m{\dimexpr 1in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{\textbf{Fil\ d'arachide}}}} & \multicolumn{1}{>{\centering}m{\dimexpr 1in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{\textbf{fil\ anacarde}}}} & \multicolumn{1}{>{\centering}m{\dimexpr 1in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{\textbf{Fil\ mangue}}}} & \multicolumn{1}{>{\centering}m{\dimexpr 1in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{\textbf{fil\ riz}}}} & \multicolumn{1}{>{\centering}m{\dimexpr 1in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{\textbf{Total}}}} \\
+
+\ascline{1pt}{000000}{1-6}
+
+
+
+\multicolumn{1}{>{\raggedright}m{\dimexpr 1in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{\textbf{Variable}}}} & \multicolumn{1}{>{\centering}m{\dimexpr 1in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{\textbf{N\ =\ 108}}}\textcolor[HTML]{000000}{\textsuperscript{\fontsize{11}{11}\selectfont{1}}}} & \multicolumn{1}{>{\centering}m{\dimexpr 1in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{\textbf{N\ =\ 61}}}\textcolor[HTML]{000000}{\textsuperscript{\fontsize{11}{11}\selectfont{1}}}} & \multicolumn{1}{>{\centering}m{\dimexpr 1in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{\textbf{N\ =\ 89}}}\textcolor[HTML]{000000}{\textsuperscript{\fontsize{11}{11}\selectfont{1}}}} & \multicolumn{1}{>{\centering}m{\dimexpr 1in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{\textbf{N\ =\ 92}}}\textcolor[HTML]{000000}{\textsuperscript{\fontsize{11}{11}\selectfont{1}}}} & \multicolumn{1}{>{\centering}m{\dimexpr 1in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{TOTAL\ =250}}\textcolor[HTML]{000000}{\textsuperscript{\fontsize{11}{11}\selectfont{1}}}} \\
+
+\ascline{1pt}{000000}{1-6}\endfirsthead 
+
+\ascline{1pt}{000000}{1-6}
+
+\multicolumn{1}{>{\raggedright}m{\dimexpr 1in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{\ }}} & \multicolumn{1}{>{\centering}m{\dimexpr 1in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{\textbf{Fil\ d'arachide}}}} & \multicolumn{1}{>{\centering}m{\dimexpr 1in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{\textbf{fil\ anacarde}}}} & \multicolumn{1}{>{\centering}m{\dimexpr 1in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{\textbf{Fil\ mangue}}}} & \multicolumn{1}{>{\centering}m{\dimexpr 1in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{\textbf{fil\ riz}}}} & \multicolumn{1}{>{\centering}m{\dimexpr 1in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{\textbf{Total}}}} \\
+
+\ascline{1pt}{000000}{1-6}
+
+
+
+\multicolumn{1}{>{\raggedright}m{\dimexpr 1in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{\textbf{Variable}}}} & \multicolumn{1}{>{\centering}m{\dimexpr 1in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{\textbf{N\ =\ 108}}}\textcolor[HTML]{000000}{\textsuperscript{\fontsize{11}{11}\selectfont{1}}}} & \multicolumn{1}{>{\centering}m{\dimexpr 1in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{\textbf{N\ =\ 61}}}\textcolor[HTML]{000000}{\textsuperscript{\fontsize{11}{11}\selectfont{1}}}} & \multicolumn{1}{>{\centering}m{\dimexpr 1in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{\textbf{N\ =\ 89}}}\textcolor[HTML]{000000}{\textsuperscript{\fontsize{11}{11}\selectfont{1}}}} & \multicolumn{1}{>{\centering}m{\dimexpr 1in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{\textbf{N\ =\ 92}}}\textcolor[HTML]{000000}{\textsuperscript{\fontsize{11}{11}\selectfont{1}}}} & \multicolumn{1}{>{\centering}m{\dimexpr 1in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{TOTAL\ =250}}\textcolor[HTML]{000000}{\textsuperscript{\fontsize{11}{11}\selectfont{1}}}} \\
+
+\ascline{1pt}{000000}{1-6}\endhead
+
+
+
+\multicolumn{6}{>{\raggedright}m{\dimexpr 6in+10\tabcolsep}}{\textcolor[HTML]{000000}{\textsuperscript{\fontsize{11}{11}\selectfont{1}}}\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{n\ (\%)}}} \\
+
+\endfoot
+
+
+
+\multicolumn{1}{>{\raggedright}p{\dimexpr 1in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{\textbf{sexe}}}} & \multicolumn{1}{>{\centering}p{\dimexpr 1in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{}}} & \multicolumn{1}{>{\centering}p{\dimexpr 1in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{}}} & \multicolumn{1}{>{\centering}p{\dimexpr 1in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{}}} & \multicolumn{1}{>{\centering}p{\dimexpr 1in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{}}} & \multicolumn{1}{>{\centering}p{\dimexpr 1in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{}}} \\
+
+
+
+
+
+\multicolumn{1}{>{\raggedright}p{\dimexpr 1in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{Femme}}} & \multicolumn{1}{>{\centering}p{\dimexpr 1in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{93\ (86\%)}}} & \multicolumn{1}{>{\centering}p{\dimexpr 1in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{40\ (66\%)}}} & \multicolumn{1}{>{\centering}p{\dimexpr 1in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{68\ (76\%)}}} & \multicolumn{1}{>{\centering}p{\dimexpr 1in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{77\ (84\%)}}} & \multicolumn{1}{>{\centering}p{\dimexpr 1in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{191\ (76\%)}}} \\
+
+
+
+
+
+\multicolumn{1}{>{\raggedright}p{\dimexpr 1in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{Homme}}} & \multicolumn{1}{>{\centering}p{\dimexpr 1in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{15\ (14\%)}}} & \multicolumn{1}{>{\centering}p{\dimexpr 1in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{21\ (34\%)}}} & \multicolumn{1}{>{\centering}p{\dimexpr 1in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{21\ (24\%)}}} & \multicolumn{1}{>{\centering}p{\dimexpr 1in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{15\ (16\%)}}} & \multicolumn{1}{>{\centering}p{\dimexpr 1in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{59\ (24\%)}}} \\
+
+
+
+
+
+\multicolumn{1}{>{\raggedright}p{\dimexpr 1in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{\textbf{Niveau\ d'inst}}}} & \multicolumn{1}{>{\centering}p{\dimexpr 1in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{}}} & \multicolumn{1}{>{\centering}p{\dimexpr 1in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{}}} & \multicolumn{1}{>{\centering}p{\dimexpr 1in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{}}} & \multicolumn{1}{>{\centering}p{\dimexpr 1in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{}}} & \multicolumn{1}{>{\centering}p{\dimexpr 1in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{}}} \\
+
+
+
+
+
+\multicolumn{1}{>{\raggedright}p{\dimexpr 1in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{Aucun\ niveau}}} & \multicolumn{1}{>{\centering}p{\dimexpr 1in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{43\ (40\%)}}} & \multicolumn{1}{>{\centering}p{\dimexpr 1in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{13\ (21\%)}}} & \multicolumn{1}{>{\centering}p{\dimexpr 1in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{26\ (29\%)}}} & \multicolumn{1}{>{\centering}p{\dimexpr 1in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{11\ (12\%)}}} & \multicolumn{1}{>{\centering}p{\dimexpr 1in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{79\ (32\%)}}} \\
+
+
+
+
+
+\multicolumn{1}{>{\raggedright}p{\dimexpr 1in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{Niveau\ primaire}}} & \multicolumn{1}{>{\centering}p{\dimexpr 1in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{23\ (21\%)}}} & \multicolumn{1}{>{\centering}p{\dimexpr 1in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{17\ (28\%)}}} & \multicolumn{1}{>{\centering}p{\dimexpr 1in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{24\ (27\%)}}} & \multicolumn{1}{>{\centering}p{\dimexpr 1in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{26\ (28\%)}}} & \multicolumn{1}{>{\centering}p{\dimexpr 1in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{56\ (22\%)}}} \\
+
+
+
+
+
+\multicolumn{1}{>{\raggedright}p{\dimexpr 1in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{Niveau\ secondaire}}} & \multicolumn{1}{>{\centering}p{\dimexpr 1in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{34\ (31\%)}}} & \multicolumn{1}{>{\centering}p{\dimexpr 1in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{15\ (25\%)}}} & \multicolumn{1}{>{\centering}p{\dimexpr 1in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{25\ (28\%)}}} & \multicolumn{1}{>{\centering}p{\dimexpr 1in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{32\ (35\%)}}} & \multicolumn{1}{>{\centering}p{\dimexpr 1in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{74\ (30\%)}}} \\
+
+
+
+
+
+\multicolumn{1}{>{\raggedright}p{\dimexpr 1in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{Niveau\ Superieur}}} & \multicolumn{1}{>{\centering}p{\dimexpr 1in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{8\ (7.4\%)}}} & \multicolumn{1}{>{\centering}p{\dimexpr 1in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{16\ (26\%)}}} & \multicolumn{1}{>{\centering}p{\dimexpr 1in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{14\ (16\%)}}} & \multicolumn{1}{>{\centering}p{\dimexpr 1in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{23\ (25\%)}}} & \multicolumn{1}{>{\centering}p{\dimexpr 1in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{41\ (16\%)}}} \\
+
+
+
+
+
+\multicolumn{1}{>{\raggedright}p{\dimexpr 1in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{\textbf{Statut\ juridique}}}} & \multicolumn{1}{>{\centering}p{\dimexpr 1in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{}}} & \multicolumn{1}{>{\centering}p{\dimexpr 1in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{}}} & \multicolumn{1}{>{\centering}p{\dimexpr 1in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{}}} & \multicolumn{1}{>{\centering}p{\dimexpr 1in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{}}} & \multicolumn{1}{>{\centering}p{\dimexpr 1in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{}}} \\
+
+
+
+
+
+\multicolumn{1}{>{\raggedright}p{\dimexpr 1in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{Association}}} & \multicolumn{1}{>{\centering}p{\dimexpr 1in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{2\ (1.9\%)}}} & \multicolumn{1}{>{\centering}p{\dimexpr 1in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{3\ (4.9\%)}}} & \multicolumn{1}{>{\centering}p{\dimexpr 1in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{}}} & \multicolumn{1}{>{\centering}p{\dimexpr 1in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{2\ (2.2\%)}}} & \multicolumn{1}{>{\centering}p{\dimexpr 1in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{6\ (2.4\%)}}} \\
+
+
+
+
+
+\multicolumn{1}{>{\raggedright}p{\dimexpr 1in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{GIE}}} & \multicolumn{1}{>{\centering}p{\dimexpr 1in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{79\ (73\%)}}} & \multicolumn{1}{>{\centering}p{\dimexpr 1in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{35\ (57\%)}}} & \multicolumn{1}{>{\centering}p{\dimexpr 1in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{73\ (82\%)}}} & \multicolumn{1}{>{\centering}p{\dimexpr 1in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{77\ (84\%)}}} & \multicolumn{1}{>{\centering}p{\dimexpr 1in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{179\ (72\%)}}} \\
+
+
+
+
+
+\multicolumn{1}{>{\raggedright}p{\dimexpr 1in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{Informel}}} & \multicolumn{1}{>{\centering}p{\dimexpr 1in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{23\ (21\%)}}} & \multicolumn{1}{>{\centering}p{\dimexpr 1in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{12\ (20\%)}}} & \multicolumn{1}{>{\centering}p{\dimexpr 1in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{5\ (5.6\%)}}} & \multicolumn{1}{>{\centering}p{\dimexpr 1in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{3\ (3.3\%)}}} & \multicolumn{1}{>{\centering}p{\dimexpr 1in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{38\ (15\%)}}} \\
+
+
+
+
+
+\multicolumn{1}{>{\raggedright}p{\dimexpr 1in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{SA}}} & \multicolumn{1}{>{\centering}p{\dimexpr 1in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{2\ (1.9\%)}}} & \multicolumn{1}{>{\centering}p{\dimexpr 1in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{2\ (3.3\%)}}} & \multicolumn{1}{>{\centering}p{\dimexpr 1in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{3\ (3.4\%)}}} & \multicolumn{1}{>{\centering}p{\dimexpr 1in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{3\ (3.3\%)}}} & \multicolumn{1}{>{\centering}p{\dimexpr 1in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{7\ (2.8\%)}}} \\
+
+
+
+
+
+\multicolumn{1}{>{\raggedright}p{\dimexpr 1in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{SARL}}} & \multicolumn{1}{>{\centering}p{\dimexpr 1in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{1\ (0.9\%)}}} & \multicolumn{1}{>{\centering}p{\dimexpr 1in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{6\ (9.8\%)}}} & \multicolumn{1}{>{\centering}p{\dimexpr 1in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{6\ (6.7\%)}}} & \multicolumn{1}{>{\centering}p{\dimexpr 1in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{5\ (5.4\%)}}} & \multicolumn{1}{>{\centering}p{\dimexpr 1in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{13\ (5.2\%)}}} \\
+
+
+
+
+
+\multicolumn{1}{>{\raggedright}p{\dimexpr 1in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{SUARL}}} & \multicolumn{1}{>{\centering}p{\dimexpr 1in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{1\ (0.9\%)}}} & \multicolumn{1}{>{\centering}p{\dimexpr 1in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{3\ (4.9\%)}}} & \multicolumn{1}{>{\centering}p{\dimexpr 1in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{2\ (2.2\%)}}} & \multicolumn{1}{>{\centering}p{\dimexpr 1in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{2\ (2.2\%)}}} & \multicolumn{1}{>{\centering}p{\dimexpr 1in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{7\ (2.8\%)}}} \\
+
+
+
+
+
+\multicolumn{1}{>{\raggedright}p{\dimexpr 1in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{\textbf{Propriétaire\ }}}} & \multicolumn{1}{>{\centering}p{\dimexpr 1in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{}}} & \multicolumn{1}{>{\centering}p{\dimexpr 1in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{}}} & \multicolumn{1}{>{\centering}p{\dimexpr 1in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{}}} & \multicolumn{1}{>{\centering}p{\dimexpr 1in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{}}} & \multicolumn{1}{>{\centering}p{\dimexpr 1in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{}}} \\
+
+
+
+
+
+\multicolumn{1}{>{\raggedright}p{\dimexpr 1in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{Locataire}}} & \multicolumn{1}{>{\centering}p{\dimexpr 1in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{12\ (11\%)}}} & \multicolumn{1}{>{\centering}p{\dimexpr 1in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{7\ (11\%)}}} & \multicolumn{1}{>{\centering}p{\dimexpr 1in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{11\ (12\%)}}} & \multicolumn{1}{>{\centering}p{\dimexpr 1in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{9\ (9.8\%)}}} & \multicolumn{1}{>{\centering}p{\dimexpr 1in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{24\ (9.6\%)}}} \\
+
+
+
+
+
+\multicolumn{1}{>{\raggedright}p{\dimexpr 1in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{Propriétaire}}} & \multicolumn{1}{>{\centering}p{\dimexpr 1in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{96\ (89\%)}}} & \multicolumn{1}{>{\centering}p{\dimexpr 1in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{54\ (89\%)}}} & \multicolumn{1}{>{\centering}p{\dimexpr 1in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{78\ (88\%)}}} & \multicolumn{1}{>{\centering}p{\dimexpr 1in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{83\ (90\%)}}} & \multicolumn{1}{>{\centering}p{\dimexpr 1in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{226\ (90\%)}}} \\
+
+\ascline{1pt}{000000}{1-6}
+
+
+
+\end{longtable}
+
+
+
+\arrayrulecolor[HTML]{000000}
+
+\global\setlength{\arrayrulewidth}{\Oldarrayrulewidth}
+
+\global\setlength{\tabcolsep}{\Oldtabcolsep}
+
+\renewcommand*{\arraystretch}{1}
+
+\begin{itemize}
+\tightlist
+\item
+  Globalement sur 4 dirigeants près de 3 sont des femmes ,les dirigeants
+  des PME ont tendance tendance à avoir aucun niveau ou des niveau
+  secondaire.
+\item
+  La majorité soit près de 72\% des PME sont des GIE et la minorité des
+  SA constituant 2\% de toute les PME.
+\item
+  Presque toute les PME sont propriétaire de leur locaux
+\item
+  Les PME exercant dans la filière arachide sont majoritaire ,
+  constituant un peu moins de la moitié des PME, celle de la filière
+  Anacarde constitue juste 24\% de la base.
+\end{itemize}
+
+\hypertarget{qualituxe9-des-routes-menant-aux-filieres}{%
+\subsection{Qualité des routes menant aux
+filieres}\label{qualituxe9-des-routes-menant-aux-filieres}}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{Final1 }\OtherTok{\textless{}{-}}\NormalTok{ Final}
+\NormalTok{Final1}\SpecialCharTok{$}\NormalTok{q19 }\OtherTok{\textless{}{-}} \FunctionTok{fct\_na\_value\_to\_level}\NormalTok{(Final}\SpecialCharTok{$}\NormalTok{q19, }\StringTok{"NA"}\NormalTok{)}
+
+\NormalTok{l1}\OtherTok{\textless{}{-}}\NormalTok{Final1 }\SpecialCharTok{\%\textgreater{}\%}
+\NormalTok{  dplyr}\SpecialCharTok{::}\FunctionTok{filter}\NormalTok{(filiere\_1}\SpecialCharTok{==}\StringTok{"1"}\NormalTok{) }\SpecialCharTok{\%\textgreater{}\%} 
+\NormalTok{  dplyr}\SpecialCharTok{::}\FunctionTok{select}\NormalTok{(filiere\_1,region,q19) }\SpecialCharTok{\%\textgreater{}\%}
+\NormalTok{  gtsummary}\SpecialCharTok{::}\FunctionTok{tbl\_strata}\NormalTok{(}
+    \AttributeTok{strata =} \StringTok{"filiere\_1"}\NormalTok{, }\AttributeTok{.tbl\_fun =} \ControlFlowTok{function}\NormalTok{(data) \{}
+\NormalTok{      data }\SpecialCharTok{\%\textgreater{}\%}
+\NormalTok{        gtsummary}\SpecialCharTok{::}\FunctionTok{tbl\_summary}\NormalTok{(}
+          \AttributeTok{label =} \FunctionTok{list}\NormalTok{(}\AttributeTok{region =} \StringTok{"Région"}\NormalTok{),}
+          \AttributeTok{missing =} \StringTok{"no"}\NormalTok{,}\AttributeTok{by =}\NormalTok{ q19,}\AttributeTok{percent =} \StringTok{"row"}\NormalTok{) \})}
+
+\NormalTok{l2}\OtherTok{\textless{}{-}}\NormalTok{Final1 }\SpecialCharTok{\%\textgreater{}\%}
+\NormalTok{  dplyr}\SpecialCharTok{::}\FunctionTok{filter}\NormalTok{(filiere\_2}\SpecialCharTok{==}\StringTok{"1"}\NormalTok{) }\SpecialCharTok{\%\textgreater{}\%} 
+\NormalTok{  dplyr}\SpecialCharTok{::}\FunctionTok{select}\NormalTok{(filiere\_2,region,q19) }\SpecialCharTok{\%\textgreater{}\%}
+\NormalTok{  gtsummary}\SpecialCharTok{::}\FunctionTok{tbl\_strata}\NormalTok{(}
+    \AttributeTok{strata =} \StringTok{"filiere\_2"}\NormalTok{, }\AttributeTok{.tbl\_fun =} \ControlFlowTok{function}\NormalTok{(data) \{}
+\NormalTok{      data }\SpecialCharTok{\%\textgreater{}\%}\NormalTok{gtsummary}\SpecialCharTok{::}\FunctionTok{tbl\_summary}\NormalTok{(}
+          \AttributeTok{label =} \FunctionTok{list}\NormalTok{(}\AttributeTok{q1 =} \StringTok{"Région"}\NormalTok{),}
+          \AttributeTok{missing =} \StringTok{"no"}\NormalTok{,}\AttributeTok{by =}\NormalTok{ q19,}\AttributeTok{percent =} \StringTok{"row"}\NormalTok{) \})}
+
+\NormalTok{l3}\OtherTok{\textless{}{-}}\NormalTok{Final1 }\SpecialCharTok{\%\textgreater{}\%}
+\NormalTok{  dplyr}\SpecialCharTok{::}\FunctionTok{filter}\NormalTok{(filiere\_3}\SpecialCharTok{==}\StringTok{"1"}\NormalTok{) }\SpecialCharTok{\%\textgreater{}\%} 
+\NormalTok{  dplyr}\SpecialCharTok{::}\FunctionTok{select}\NormalTok{(filiere\_3,region,q19) }\SpecialCharTok{\%\textgreater{}\%}
+\NormalTok{  gtsummary}\SpecialCharTok{::}\FunctionTok{tbl\_strata}\NormalTok{(}
+    \AttributeTok{strata =} \StringTok{"filiere\_3"}\NormalTok{, }\AttributeTok{.tbl\_fun =} \ControlFlowTok{function}\NormalTok{(data) \{}
+\NormalTok{      data }\SpecialCharTok{\%\textgreater{}\%}\NormalTok{gtsummary}\SpecialCharTok{::}\FunctionTok{tbl\_summary}\NormalTok{(}
+           \AttributeTok{label =} \FunctionTok{list}\NormalTok{(}\AttributeTok{q1 =} \StringTok{"Région"}\NormalTok{),}
+          \AttributeTok{missing =} \StringTok{"no"}\NormalTok{,}\AttributeTok{by =}\NormalTok{ q19,}\AttributeTok{percent =} \StringTok{"row"}\NormalTok{) \})}
+\NormalTok{l4}\OtherTok{\textless{}{-}}\NormalTok{Final1 }\SpecialCharTok{\%\textgreater{}\%}
+\NormalTok{  dplyr}\SpecialCharTok{::}\FunctionTok{filter}\NormalTok{(filiere\_4}\SpecialCharTok{==}\StringTok{"1"}\NormalTok{) }\SpecialCharTok{\%\textgreater{}\%} 
+\NormalTok{ dplyr}\SpecialCharTok{::}\FunctionTok{select}\NormalTok{(filiere\_4,region,q19) }\SpecialCharTok{\%\textgreater{}\%}
+\NormalTok{  gtsummary}\SpecialCharTok{::}\FunctionTok{tbl\_strata}\NormalTok{(}
+    \AttributeTok{strata =} \StringTok{"filiere\_4"}\NormalTok{, }\AttributeTok{.tbl\_fun =} \ControlFlowTok{function}\NormalTok{(data) \{}
+\NormalTok{      data }\SpecialCharTok{\%\textgreater{}\%}\NormalTok{ gtsummary}\SpecialCharTok{::}\FunctionTok{tbl\_summary}\NormalTok{(}
+          \AttributeTok{label =} \FunctionTok{list}\NormalTok{(}\AttributeTok{q1 =} \StringTok{"Région"}\NormalTok{),}
+          \AttributeTok{missing =} \StringTok{"no"}\NormalTok{,}\AttributeTok{by =}\NormalTok{ q19,}\AttributeTok{percent =} \StringTok{"row"}\NormalTok{) \})}
+\DocumentationTok{\#\# Regrouper les tableau}
+\FunctionTok{tbl\_stack}\NormalTok{(}
+  \FunctionTok{list}\NormalTok{(l1,l2,l3,l4),}
+ \AttributeTok{group\_header =} \FunctionTok{c}\NormalTok{(}\StringTok{"arachide"}\NormalTok{,}
+                  \StringTok{"anacarde"}\NormalTok{,}\StringTok{"mangue"}\NormalTok{,}
+                  \StringTok{" riz"}\NormalTok{)}
+\NormalTok{                  )}\SpecialCharTok{\%\textgreater{}\%} 
+  \FunctionTok{bold\_labels}\NormalTok{() }\SpecialCharTok{\%\textgreater{}\%} 
+  \FunctionTok{modify\_header}\NormalTok{(}\AttributeTok{label =} \StringTok{"**Région**"}\NormalTok{)}\SpecialCharTok{\%\textgreater{}\%}
+  \FunctionTok{as\_flex\_table}\NormalTok{() }\SpecialCharTok{\%\textgreater{}\%} 
+  \FunctionTok{width}\NormalTok{(}\AttributeTok{width=}\DecValTok{1}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\global\setlength{\Oldarrayrulewidth}{\arrayrulewidth}
+
+\global\setlength{\Oldtabcolsep}{\tabcolsep}
+
+\setlength{\tabcolsep}{0pt}
+
+\renewcommand*{\arraystretch}{1.5}
+
+
+
+\providecommand{\ascline}[3]{\noalign{\global\arrayrulewidth #1}\arrayrulecolor[HTML]{#2}\cline{#3}}
+
+\begin{longtable}[c]{|p{1.00in}|p{1.00in}|p{1.00in}|p{1.00in}|p{1.00in}|p{1.00in}}
+
+
+
+\ascline{1pt}{000000}{1-6}
+
+\multicolumn{2}{>{\raggedright}m{\dimexpr 2in+2\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{\ }}} & \multicolumn{4}{>{\centering}m{\dimexpr 4in+6\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{\textbf{1}}}} \\
+
+\ascline{1pt}{000000}{1-6}
+
+
+
+\multicolumn{1}{>{\raggedright}m{\dimexpr 1in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{\textbf{Group}}}} & \multicolumn{1}{>{\raggedright}m{\dimexpr 1in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{\textbf{Région}}}} & \multicolumn{1}{>{\centering}m{\dimexpr 1in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{\textbf{Bon\ état}}}\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{,\ N\ =\ 0}}\textcolor[HTML]{000000}{\textsuperscript{\fontsize{11}{11}\selectfont{1}}}} & \multicolumn{1}{>{\centering}m{\dimexpr 1in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{\textbf{Etat\ moyen}}}\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{,\ N\ =\ 38}}\textcolor[HTML]{000000}{\textsuperscript{\fontsize{11}{11}\selectfont{1}}}} & \multicolumn{1}{>{\centering}m{\dimexpr 1in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{\textbf{Mauvais\ état}}}\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{,\ N\ =\ 29}}\textcolor[HTML]{000000}{\textsuperscript{\fontsize{11}{11}\selectfont{1}}}} & \multicolumn{1}{>{\centering}m{\dimexpr 1in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{\textbf{NA}}}\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{,\ N\ =\ 41}}\textcolor[HTML]{000000}{\textsuperscript{\fontsize{11}{11}\selectfont{1}}}} \\
+
+\ascline{1pt}{000000}{1-6}\endfirsthead 
+
+\ascline{1pt}{000000}{1-6}
+
+\multicolumn{2}{>{\raggedright}m{\dimexpr 2in+2\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{\ }}} & \multicolumn{4}{>{\centering}m{\dimexpr 4in+6\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{\textbf{1}}}} \\
+
+\ascline{1pt}{000000}{1-6}
+
+
+
+\multicolumn{1}{>{\raggedright}m{\dimexpr 1in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{\textbf{Group}}}} & \multicolumn{1}{>{\raggedright}m{\dimexpr 1in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{\textbf{Région}}}} & \multicolumn{1}{>{\centering}m{\dimexpr 1in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{\textbf{Bon\ état}}}\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{,\ N\ =\ 0}}\textcolor[HTML]{000000}{\textsuperscript{\fontsize{11}{11}\selectfont{1}}}} & \multicolumn{1}{>{\centering}m{\dimexpr 1in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{\textbf{Etat\ moyen}}}\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{,\ N\ =\ 38}}\textcolor[HTML]{000000}{\textsuperscript{\fontsize{11}{11}\selectfont{1}}}} & \multicolumn{1}{>{\centering}m{\dimexpr 1in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{\textbf{Mauvais\ état}}}\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{,\ N\ =\ 29}}\textcolor[HTML]{000000}{\textsuperscript{\fontsize{11}{11}\selectfont{1}}}} & \multicolumn{1}{>{\centering}m{\dimexpr 1in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{\textbf{NA}}}\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{,\ N\ =\ 41}}\textcolor[HTML]{000000}{\textsuperscript{\fontsize{11}{11}\selectfont{1}}}} \\
+
+\ascline{1pt}{000000}{1-6}\endhead
+
+
+
+\multicolumn{6}{>{\raggedright}m{\dimexpr 6in+10\tabcolsep}}{\textcolor[HTML]{000000}{\textsuperscript{\fontsize{11}{11}\selectfont{1}}}\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{n\ (\%)}}} \\
+
+\endfoot
+
+
+
+\multicolumn{1}{>{\raggedright}p{\dimexpr 1in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{\textbf{arachide}}}} & \multicolumn{1}{>{\raggedright}p{\dimexpr 1in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{Région}}} & \multicolumn{1}{>{\centering}p{\dimexpr 1in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{}}} & \multicolumn{1}{>{\centering}p{\dimexpr 1in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{}}} & \multicolumn{1}{>{\centering}p{\dimexpr 1in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{}}} & \multicolumn{1}{>{\centering}p{\dimexpr 1in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{}}} \\
+
+
+
+
+
+\multicolumn{1}{>{\raggedright}p{\dimexpr 1in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{}}} & \multicolumn{1}{>{\raggedright}p{\dimexpr 1in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{Diourbel}}} & \multicolumn{1}{>{\centering}p{\dimexpr 1in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{0\ (0\%)}}} & \multicolumn{1}{>{\centering}p{\dimexpr 1in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{15\ (45\%)}}} & \multicolumn{1}{>{\centering}p{\dimexpr 1in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{14\ (42\%)}}} & \multicolumn{1}{>{\centering}p{\dimexpr 1in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{4\ (12\%)}}} \\
+
+
+
+
+
+\multicolumn{1}{>{\raggedright}p{\dimexpr 1in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{}}} & \multicolumn{1}{>{\raggedright}p{\dimexpr 1in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{Fatick}}} & \multicolumn{1}{>{\centering}p{\dimexpr 1in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{0\ (0\%)}}} & \multicolumn{1}{>{\centering}p{\dimexpr 1in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{1\ (8.3\%)}}} & \multicolumn{1}{>{\centering}p{\dimexpr 1in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{9\ (75\%)}}} & \multicolumn{1}{>{\centering}p{\dimexpr 1in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{2\ (17\%)}}} \\
+
+
+
+
+
+\multicolumn{1}{>{\raggedright}p{\dimexpr 1in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{}}} & \multicolumn{1}{>{\raggedright}p{\dimexpr 1in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{Kaffrine}}} & \multicolumn{1}{>{\centering}p{\dimexpr 1in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{0\ (0\%)}}} & \multicolumn{1}{>{\centering}p{\dimexpr 1in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{6\ (75\%)}}} & \multicolumn{1}{>{\centering}p{\dimexpr 1in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{1\ (13\%)}}} & \multicolumn{1}{>{\centering}p{\dimexpr 1in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{1\ (13\%)}}} \\
+
+
+
+
+
+\multicolumn{1}{>{\raggedright}p{\dimexpr 1in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{}}} & \multicolumn{1}{>{\raggedright}p{\dimexpr 1in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{Kaolack}}} & \multicolumn{1}{>{\centering}p{\dimexpr 1in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{0\ (0\%)}}} & \multicolumn{1}{>{\centering}p{\dimexpr 1in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{5\ (25\%)}}} & \multicolumn{1}{>{\centering}p{\dimexpr 1in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{4\ (20\%)}}} & \multicolumn{1}{>{\centering}p{\dimexpr 1in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{11\ (55\%)}}} \\
+
+
+
+
+
+\multicolumn{1}{>{\raggedright}p{\dimexpr 1in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{}}} & \multicolumn{1}{>{\raggedright}p{\dimexpr 1in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{Kolda}}} & \multicolumn{1}{>{\centering}p{\dimexpr 1in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{0\ (0\%)}}} & \multicolumn{1}{>{\centering}p{\dimexpr 1in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{1\ (100\%)}}} & \multicolumn{1}{>{\centering}p{\dimexpr 1in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{0\ (0\%)}}} & \multicolumn{1}{>{\centering}p{\dimexpr 1in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{0\ (0\%)}}} \\
+
+
+
+
+
+\multicolumn{1}{>{\raggedright}p{\dimexpr 1in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{}}} & \multicolumn{1}{>{\raggedright}p{\dimexpr 1in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{Saint-Louis}}} & \multicolumn{1}{>{\centering}p{\dimexpr 1in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{0\ (0\%)}}} & \multicolumn{1}{>{\centering}p{\dimexpr 1in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{0\ (0\%)}}} & \multicolumn{1}{>{\centering}p{\dimexpr 1in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{0\ (0\%)}}} & \multicolumn{1}{>{\centering}p{\dimexpr 1in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{1\ (100\%)}}} \\
+
+
+
+
+
+\multicolumn{1}{>{\raggedright}p{\dimexpr 1in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{}}} & \multicolumn{1}{>{\raggedright}p{\dimexpr 1in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{Thiès}}} & \multicolumn{1}{>{\centering}p{\dimexpr 1in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{0\ (0\%)}}} & \multicolumn{1}{>{\centering}p{\dimexpr 1in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{10\ (37\%)}}} & \multicolumn{1}{>{\centering}p{\dimexpr 1in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{0\ (0\%)}}} & \multicolumn{1}{>{\centering}p{\dimexpr 1in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{17\ (63\%)}}} \\
+
+
+
+
+
+\multicolumn{1}{>{\raggedright}p{\dimexpr 1in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{}}} & \multicolumn{1}{>{\raggedright}p{\dimexpr 1in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{Ziguinchor}}} & \multicolumn{1}{>{\centering}p{\dimexpr 1in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{0\ (0\%)}}} & \multicolumn{1}{>{\centering}p{\dimexpr 1in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{0\ (0\%)}}} & \multicolumn{1}{>{\centering}p{\dimexpr 1in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{1\ (17\%)}}} & \multicolumn{1}{>{\centering}p{\dimexpr 1in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{5\ (83\%)}}} \\
+
+
+
+
+
+\multicolumn{1}{>{\raggedright}p{\dimexpr 1in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{\textbf{anacarde}}}} & \multicolumn{1}{>{\raggedright}p{\dimexpr 1in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{region}}} & \multicolumn{1}{>{\centering}p{\dimexpr 1in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{}}} & \multicolumn{1}{>{\centering}p{\dimexpr 1in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{}}} & \multicolumn{1}{>{\centering}p{\dimexpr 1in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{}}} & \multicolumn{1}{>{\centering}p{\dimexpr 1in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{}}} \\
+
+
+
+
+
+\multicolumn{1}{>{\raggedright}p{\dimexpr 1in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{}}} & \multicolumn{1}{>{\raggedright}p{\dimexpr 1in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{Dakar}}} & \multicolumn{1}{>{\centering}p{\dimexpr 1in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{0\ (0\%)}}} & \multicolumn{1}{>{\centering}p{\dimexpr 1in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{1\ (100\%)}}} & \multicolumn{1}{>{\centering}p{\dimexpr 1in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{0\ (0\%)}}} & \multicolumn{1}{>{\centering}p{\dimexpr 1in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{0\ (0\%)}}} \\
+
+
+
+
+
+\multicolumn{1}{>{\raggedright}p{\dimexpr 1in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{}}} & \multicolumn{1}{>{\raggedright}p{\dimexpr 1in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{Fatick}}} & \multicolumn{1}{>{\centering}p{\dimexpr 1in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{0\ (0\%)}}} & \multicolumn{1}{>{\centering}p{\dimexpr 1in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{8\ (38\%)}}} & \multicolumn{1}{>{\centering}p{\dimexpr 1in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{8\ (38\%)}}} & \multicolumn{1}{>{\centering}p{\dimexpr 1in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{5\ (24\%)}}} \\
+
+
+
+
+
+\multicolumn{1}{>{\raggedright}p{\dimexpr 1in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{}}} & \multicolumn{1}{>{\raggedright}p{\dimexpr 1in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{Kolda}}} & \multicolumn{1}{>{\centering}p{\dimexpr 1in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{0\ (0\%)}}} & \multicolumn{1}{>{\centering}p{\dimexpr 1in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{3\ (60\%)}}} & \multicolumn{1}{>{\centering}p{\dimexpr 1in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{0\ (0\%)}}} & \multicolumn{1}{>{\centering}p{\dimexpr 1in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{2\ (40\%)}}} \\
+
+
+
+
+
+\multicolumn{1}{>{\raggedright}p{\dimexpr 1in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{}}} & \multicolumn{1}{>{\raggedright}p{\dimexpr 1in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{Sédhiou}}} & \multicolumn{1}{>{\centering}p{\dimexpr 1in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{0\ (0\%)}}} & \multicolumn{1}{>{\centering}p{\dimexpr 1in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{1\ (33\%)}}} & \multicolumn{1}{>{\centering}p{\dimexpr 1in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{0\ (0\%)}}} & \multicolumn{1}{>{\centering}p{\dimexpr 1in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{2\ (67\%)}}} \\
+
+
+
+
+
+\multicolumn{1}{>{\raggedright}p{\dimexpr 1in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{}}} & \multicolumn{1}{>{\raggedright}p{\dimexpr 1in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{Ziguinchor}}} & \multicolumn{1}{>{\centering}p{\dimexpr 1in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{1\ (3.2\%)}}} & \multicolumn{1}{>{\centering}p{\dimexpr 1in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{5\ (16\%)}}} & \multicolumn{1}{>{\centering}p{\dimexpr 1in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{7\ (23\%)}}} & \multicolumn{1}{>{\centering}p{\dimexpr 1in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{18\ (58\%)}}} \\
+
+
+
+
+
+\multicolumn{1}{>{\raggedright}p{\dimexpr 1in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{\textbf{mangue}}}} & \multicolumn{1}{>{\raggedright}p{\dimexpr 1in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{region}}} & \multicolumn{1}{>{\centering}p{\dimexpr 1in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{}}} & \multicolumn{1}{>{\centering}p{\dimexpr 1in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{}}} & \multicolumn{1}{>{\centering}p{\dimexpr 1in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{}}} & \multicolumn{1}{>{\centering}p{\dimexpr 1in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{}}} \\
+
+
+
+
+
+\multicolumn{1}{>{\raggedright}p{\dimexpr 1in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{}}} & \multicolumn{1}{>{\raggedright}p{\dimexpr 1in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{Diourbel}}} & \multicolumn{1}{>{\centering}p{\dimexpr 1in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{0\ (0\%)}}} & \multicolumn{1}{>{\centering}p{\dimexpr 1in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{0\ (0\%)}}} & \multicolumn{1}{>{\centering}p{\dimexpr 1in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{0\ (0\%)}}} & \multicolumn{1}{>{\centering}p{\dimexpr 1in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{1\ (100\%)}}} \\
+
+
+
+
+
+\multicolumn{1}{>{\raggedright}p{\dimexpr 1in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{}}} & \multicolumn{1}{>{\raggedright}p{\dimexpr 1in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{Fatick}}} & \multicolumn{1}{>{\centering}p{\dimexpr 1in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{0\ (0\%)}}} & \multicolumn{1}{>{\centering}p{\dimexpr 1in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{1\ (33\%)}}} & \multicolumn{1}{>{\centering}p{\dimexpr 1in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{2\ (67\%)}}} & \multicolumn{1}{>{\centering}p{\dimexpr 1in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{0\ (0\%)}}} \\
+
+
+
+
+
+\multicolumn{1}{>{\raggedright}p{\dimexpr 1in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{}}} & \multicolumn{1}{>{\raggedright}p{\dimexpr 1in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{Kaffrine}}} & \multicolumn{1}{>{\centering}p{\dimexpr 1in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{0\ (0\%)}}} & \multicolumn{1}{>{\centering}p{\dimexpr 1in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{4\ (80\%)}}} & \multicolumn{1}{>{\centering}p{\dimexpr 1in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{0\ (0\%)}}} & \multicolumn{1}{>{\centering}p{\dimexpr 1in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{1\ (20\%)}}} \\
+
+
+
+
+
+\multicolumn{1}{>{\raggedright}p{\dimexpr 1in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{}}} & \multicolumn{1}{>{\raggedright}p{\dimexpr 1in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{Kaolack}}} & \multicolumn{1}{>{\centering}p{\dimexpr 1in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{0\ (0\%)}}} & \multicolumn{1}{>{\centering}p{\dimexpr 1in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{2\ (29\%)}}} & \multicolumn{1}{>{\centering}p{\dimexpr 1in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{1\ (14\%)}}} & \multicolumn{1}{>{\centering}p{\dimexpr 1in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{4\ (57\%)}}} \\
+
+
+
+
+
+\multicolumn{1}{>{\raggedright}p{\dimexpr 1in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{}}} & \multicolumn{1}{>{\raggedright}p{\dimexpr 1in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{Saint-Louis}}} & \multicolumn{1}{>{\centering}p{\dimexpr 1in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{0\ (0\%)}}} & \multicolumn{1}{>{\centering}p{\dimexpr 1in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{4\ (9.5\%)}}} & \multicolumn{1}{>{\centering}p{\dimexpr 1in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{10\ (24\%)}}} & \multicolumn{1}{>{\centering}p{\dimexpr 1in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{28\ (67\%)}}} \\
+
+
+
+
+
+\multicolumn{1}{>{\raggedright}p{\dimexpr 1in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{}}} & \multicolumn{1}{>{\raggedright}p{\dimexpr 1in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{Thiès}}} & \multicolumn{1}{>{\centering}p{\dimexpr 1in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{0\ (0\%)}}} & \multicolumn{1}{>{\centering}p{\dimexpr 1in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{9\ (36\%)}}} & \multicolumn{1}{>{\centering}p{\dimexpr 1in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{0\ (0\%)}}} & \multicolumn{1}{>{\centering}p{\dimexpr 1in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{16\ (64\%)}}} \\
+
+
+
+
+
+\multicolumn{1}{>{\raggedright}p{\dimexpr 1in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{}}} & \multicolumn{1}{>{\raggedright}p{\dimexpr 1in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{Ziguinchor}}} & \multicolumn{1}{>{\centering}p{\dimexpr 1in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{0\ (0\%)}}} & \multicolumn{1}{>{\centering}p{\dimexpr 1in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{0\ (0\%)}}} & \multicolumn{1}{>{\centering}p{\dimexpr 1in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{1\ (17\%)}}} & \multicolumn{1}{>{\centering}p{\dimexpr 1in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{5\ (83\%)}}} \\
+
+
+
+
+
+\multicolumn{1}{>{\raggedright}p{\dimexpr 1in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{\textbf{\ riz}}}} & \multicolumn{1}{>{\raggedright}p{\dimexpr 1in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{region}}} & \multicolumn{1}{>{\centering}p{\dimexpr 1in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{}}} & \multicolumn{1}{>{\centering}p{\dimexpr 1in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{}}} & \multicolumn{1}{>{\centering}p{\dimexpr 1in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{}}} & \multicolumn{1}{>{\centering}p{\dimexpr 1in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{}}} \\
+
+
+
+
+
+\multicolumn{1}{>{\raggedright}p{\dimexpr 1in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{}}} & \multicolumn{1}{>{\raggedright}p{\dimexpr 1in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{Dakar}}} & \multicolumn{1}{>{\centering}p{\dimexpr 1in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{0\ (0\%)}}} & \multicolumn{1}{>{\centering}p{\dimexpr 1in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{1\ (100\%)}}} & \multicolumn{1}{>{\centering}p{\dimexpr 1in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{0\ (0\%)}}} & \multicolumn{1}{>{\centering}p{\dimexpr 1in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{0\ (0\%)}}} \\
+
+
+
+
+
+\multicolumn{1}{>{\raggedright}p{\dimexpr 1in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{}}} & \multicolumn{1}{>{\raggedright}p{\dimexpr 1in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{Fatick}}} & \multicolumn{1}{>{\centering}p{\dimexpr 1in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{0\ (0\%)}}} & \multicolumn{1}{>{\centering}p{\dimexpr 1in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{0\ (0\%)}}} & \multicolumn{1}{>{\centering}p{\dimexpr 1in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{4\ (100\%)}}} & \multicolumn{1}{>{\centering}p{\dimexpr 1in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{0\ (0\%)}}} \\
+
+
+
+
+
+\multicolumn{1}{>{\raggedright}p{\dimexpr 1in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{}}} & \multicolumn{1}{>{\raggedright}p{\dimexpr 1in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{Kaffrine}}} & \multicolumn{1}{>{\centering}p{\dimexpr 1in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{0\ (0\%)}}} & \multicolumn{1}{>{\centering}p{\dimexpr 1in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{1\ (100\%)}}} & \multicolumn{1}{>{\centering}p{\dimexpr 1in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{0\ (0\%)}}} & \multicolumn{1}{>{\centering}p{\dimexpr 1in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{0\ (0\%)}}} \\
+
+
+
+
+
+\multicolumn{1}{>{\raggedright}p{\dimexpr 1in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{}}} & \multicolumn{1}{>{\raggedright}p{\dimexpr 1in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{Kaolack}}} & \multicolumn{1}{>{\centering}p{\dimexpr 1in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{0\ (0\%)}}} & \multicolumn{1}{>{\centering}p{\dimexpr 1in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{2\ (50\%)}}} & \multicolumn{1}{>{\centering}p{\dimexpr 1in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{1\ (25\%)}}} & \multicolumn{1}{>{\centering}p{\dimexpr 1in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{1\ (25\%)}}} \\
+
+
+
+
+
+\multicolumn{1}{>{\raggedright}p{\dimexpr 1in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{}}} & \multicolumn{1}{>{\raggedright}p{\dimexpr 1in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{Kolda}}} & \multicolumn{1}{>{\centering}p{\dimexpr 1in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{0\ (0\%)}}} & \multicolumn{1}{>{\centering}p{\dimexpr 1in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{2\ (50\%)}}} & \multicolumn{1}{>{\centering}p{\dimexpr 1in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{0\ (0\%)}}} & \multicolumn{1}{>{\centering}p{\dimexpr 1in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{2\ (50\%)}}} \\
+
+
+
+
+
+\multicolumn{1}{>{\raggedright}p{\dimexpr 1in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{}}} & \multicolumn{1}{>{\raggedright}p{\dimexpr 1in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{Sédhiou}}} & \multicolumn{1}{>{\centering}p{\dimexpr 1in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{0\ (0\%)}}} & \multicolumn{1}{>{\centering}p{\dimexpr 1in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{1\ (33\%)}}} & \multicolumn{1}{>{\centering}p{\dimexpr 1in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{1\ (33\%)}}} & \multicolumn{1}{>{\centering}p{\dimexpr 1in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{1\ (33\%)}}} \\
+
+
+
+
+
+\multicolumn{1}{>{\raggedright}p{\dimexpr 1in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{}}} & \multicolumn{1}{>{\raggedright}p{\dimexpr 1in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{Thiès}}} & \multicolumn{1}{>{\centering}p{\dimexpr 1in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{0\ (0\%)}}} & \multicolumn{1}{>{\centering}p{\dimexpr 1in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{12\ (38\%)}}} & \multicolumn{1}{>{\centering}p{\dimexpr 1in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{1\ (3.1\%)}}} & \multicolumn{1}{>{\centering}p{\dimexpr 1in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{19\ (59\%)}}} \\
+
+
+
+
+
+\multicolumn{1}{>{\raggedright}p{\dimexpr 1in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{}}} & \multicolumn{1}{>{\raggedright}p{\dimexpr 1in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{Ziguinchor}}} & \multicolumn{1}{>{\centering}p{\dimexpr 1in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{2\ (4.7\%)}}} & \multicolumn{1}{>{\centering}p{\dimexpr 1in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{8\ (19\%)}}} & \multicolumn{1}{>{\centering}p{\dimexpr 1in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{8\ (19\%)}}} & \multicolumn{1}{>{\centering}p{\dimexpr 1in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{25\ (58\%)}}} \\
+
+\ascline{1pt}{000000}{1-6}
+
+
+
+\end{longtable}
+
+
+
+\arrayrulecolor[HTML]{000000}
+
+\global\setlength{\arrayrulewidth}{\Oldarrayrulewidth}
+
+\global\setlength{\tabcolsep}{\Oldtabcolsep}
+
+\renewcommand*{\arraystretch}{1}
+
+\begin{itemize}
+\tightlist
+\item
+  D'après le repondants,les routes menant aux filière d'arachide aucune
+  n'est en bon état,un peu plus de la moitié des routes soont en états
+  moyen, tandis que le reste est en mauvais état.En terme de proportion,
+  les enterprises de Kaffrine ont le plus de routes en état moyen
+\end{itemize}
+
+\hypertarget{type-de-contrat-de-bail-selon-le-statut-juridique-de-la-pme}{%
+\subsection{Type de contrat de bail selon le statut Juridique de la
+PME}\label{type-de-contrat-de-bail-selon-le-statut-juridique-de-la-pme}}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{Final }\SpecialCharTok{\%\textgreater{}\%} 
+\FunctionTok{select}\NormalTok{(q12,q81)}\SpecialCharTok{\%\textgreater{}\%}\NormalTok{ gtsummary}\SpecialCharTok{::}\FunctionTok{tbl\_summary}\NormalTok{(   }\DocumentationTok{\#\# selection des variables à utiliser}
+          \AttributeTok{label =} \FunctionTok{list}\NormalTok{(}\AttributeTok{q12 =} \StringTok{"Statut juridique"}\NormalTok{),}
+          \AttributeTok{missing =} \StringTok{"no"}\NormalTok{,}
+          \AttributeTok{by =}\NormalTok{ q81, }\AttributeTok{percent =} \StringTok{"row"}\NormalTok{) }\SpecialCharTok{\%\textgreater{}\%} 
+  \FunctionTok{bold\_labels}\NormalTok{()}\SpecialCharTok{\%\textgreater{}\%} \FunctionTok{modify\_header}\NormalTok{(}\AttributeTok{label =} \StringTok{"**Statut juridique**"}\NormalTok{)  }\SpecialCharTok{\%\textgreater{}\%} 
+  \FunctionTok{as\_flex\_table}\NormalTok{()}
+\end{Highlighting}
+\end{Shaded}
+
+\global\setlength{\Oldarrayrulewidth}{\arrayrulewidth}
+
+\global\setlength{\Oldtabcolsep}{\tabcolsep}
+
+\setlength{\tabcolsep}{0pt}
+
+\renewcommand*{\arraystretch}{1.5}
+
+
+
+\providecommand{\ascline}[3]{\noalign{\global\arrayrulewidth #1}\arrayrulecolor[HTML]{#2}\cline{#3}}
+
+\begin{longtable}[c]{|p{1.41in}|p{1.50in}|p{1.77in}}
+
+
+
+\ascline{1pt}{000000}{1-3}
+
+\multicolumn{1}{>{\raggedright}m{\dimexpr 1.41in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{\textbf{Statut\ juridique}}}} & \multicolumn{1}{>{\centering}m{\dimexpr 1.5in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{\textbf{Locataire}}}\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{,\ N\ =\ 24}}\textcolor[HTML]{000000}{\textsuperscript{\fontsize{11}{11}\selectfont{1}}}} & \multicolumn{1}{>{\centering}m{\dimexpr 1.77in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{\textbf{Propriétaire}}}\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{,\ N\ =\ 226}}\textcolor[HTML]{000000}{\textsuperscript{\fontsize{11}{11}\selectfont{1}}}} \\
+
+\ascline{1pt}{000000}{1-3}\endfirsthead 
+
+\ascline{1pt}{000000}{1-3}
+
+\multicolumn{1}{>{\raggedright}m{\dimexpr 1.41in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{\textbf{Statut\ juridique}}}} & \multicolumn{1}{>{\centering}m{\dimexpr 1.5in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{\textbf{Locataire}}}\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{,\ N\ =\ 24}}\textcolor[HTML]{000000}{\textsuperscript{\fontsize{11}{11}\selectfont{1}}}} & \multicolumn{1}{>{\centering}m{\dimexpr 1.77in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{\textbf{Propriétaire}}}\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{,\ N\ =\ 226}}\textcolor[HTML]{000000}{\textsuperscript{\fontsize{11}{11}\selectfont{1}}}} \\
+
+\ascline{1pt}{000000}{1-3}\endhead
+
+
+
+\multicolumn{3}{>{\raggedright}m{\dimexpr 4.68in+4\tabcolsep}}{\textcolor[HTML]{000000}{\textsuperscript{\fontsize{11}{11}\selectfont{1}}}\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{n\ (\%)}}} \\
+
+\endfoot
+
+
+
+\multicolumn{1}{>{\raggedright}p{\dimexpr 1.41in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{\textbf{Statut\ juridique}}}} & \multicolumn{1}{>{\centering}p{\dimexpr 1.5in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{}}} & \multicolumn{1}{>{\centering}p{\dimexpr 1.77in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{}}} \\
+
+
+
+
+
+\multicolumn{1}{>{\raggedright}p{\dimexpr 1.41in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{Association}}} & \multicolumn{1}{>{\centering}p{\dimexpr 1.5in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{0\ (0\%)}}} & \multicolumn{1}{>{\centering}p{\dimexpr 1.77in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{6\ (100\%)}}} \\
+
+
+
+
+
+\multicolumn{1}{>{\raggedright}p{\dimexpr 1.41in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{GIE}}} & \multicolumn{1}{>{\centering}p{\dimexpr 1.5in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{17\ (9.5\%)}}} & \multicolumn{1}{>{\centering}p{\dimexpr 1.77in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{162\ (91\%)}}} \\
+
+
+
+
+
+\multicolumn{1}{>{\raggedright}p{\dimexpr 1.41in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{Informel}}} & \multicolumn{1}{>{\centering}p{\dimexpr 1.5in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{0\ (0\%)}}} & \multicolumn{1}{>{\centering}p{\dimexpr 1.77in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{38\ (100\%)}}} \\
+
+
+
+
+
+\multicolumn{1}{>{\raggedright}p{\dimexpr 1.41in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{SA}}} & \multicolumn{1}{>{\centering}p{\dimexpr 1.5in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{1\ (14\%)}}} & \multicolumn{1}{>{\centering}p{\dimexpr 1.77in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{6\ (86\%)}}} \\
+
+
+
+
+
+\multicolumn{1}{>{\raggedright}p{\dimexpr 1.41in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{SARL}}} & \multicolumn{1}{>{\centering}p{\dimexpr 1.5in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{3\ (23\%)}}} & \multicolumn{1}{>{\centering}p{\dimexpr 1.77in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{10\ (77\%)}}} \\
+
+
+
+
+
+\multicolumn{1}{>{\raggedright}p{\dimexpr 1.41in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{SUARL}}} & \multicolumn{1}{>{\centering}p{\dimexpr 1.5in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{3\ (43\%)}}} & \multicolumn{1}{>{\centering}p{\dimexpr 1.77in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{4\ (57\%)}}} \\
+
+\ascline{1pt}{000000}{1-3}
+
+
+
+\end{longtable}
+
+
+
+\arrayrulecolor[HTML]{000000}
+
+\global\setlength{\arrayrulewidth}{\Oldarrayrulewidth}
+
+\global\setlength{\tabcolsep}{\Oldtabcolsep}
+
+\renewcommand*{\arraystretch}{1}
+
+Ici les pourcentages sont données en lignes, d'après les resultat , peu
+importe le statut juridique de l'entreprise,plus de 57\% d'entre eux
+sont propriétaires. On constate également que aucune association ne loue
+pendant que près de 43\% des SUARL sont locataires.
+
+\hypertarget{un-peu-de-cartographie}{%
+\subsection{3 Un peu de cartographie}\label{un-peu-de-cartographie}}
+
+\hypertarget{transformer-le-data.frame-en-donnuxe9es-guxe9ographiques-dont-lobjet-sera-nommuxe9-projet_map.}{%
+\subsubsection{3.1 Transformer le data.frame en données géographiques
+dont l'objet sera nommé
+projet\_map.}\label{transformer-le-data.frame-en-donnuxe9es-guxe9ographiques-dont-lobjet-sera-nommuxe9-projet_map.}}
+
+Il est nécessaire d'importer la bibliothèque sf
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{projet\_map }\OtherTok{\textless{}{-}} \FunctionTok{st\_as\_sf}\NormalTok{(projet, }\AttributeTok{coords =} \FunctionTok{c}\NormalTok{(}\StringTok{"gps\_menlongitude"}\NormalTok{, }\StringTok{"gps\_menlatitude"}\NormalTok{), }\AttributeTok{crs =} \DecValTok{4326}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\hypertarget{faites-une-ruxe9pruxe9sentation-spatiale-des-pme-suivant-le-sexe}{%
+\subsubsection{3.2 Faites une réprésentation spatiale des PME suivant le
+sexe}\label{faites-une-ruxe9pruxe9sentation-spatiale-des-pme-suivant-le-sexe}}
+
+Ici nous allons utiliser la librairies rnaturalearth pour avoir les
+données polygones du Sénégal, ensuite la librairie leaflet qui nous
+permettra de faire les cartes .Ausquels nous ajouterons des légendes en
+fonction de l'analyse rechercher. Etant données que leaflet a des cartes
+interactives nous allons creer une capture d'écran que nous allons
+joindre à notre travail, il sera nécessaire d'importer les librairies
+webshot et htmlwidgets.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\DocumentationTok{\#\# importation des donées du Sénégal}
+\NormalTok{Senegal }\OtherTok{\textless{}{-}}\NormalTok{ rnaturalearth}\SpecialCharTok{::}\FunctionTok{ne\_states}\NormalTok{( }\AttributeTok{country =} \StringTok{"Senegal"}\NormalTok{,}\AttributeTok{returnclass =} \StringTok{"sf"}\NormalTok{) }
+
+\DocumentationTok{\#\# Vecteurs de couleurs de légende en fonction du sexe}
+\NormalTok{couleurs\_sexe }\OtherTok{\textless{}{-}} \FunctionTok{colorFactor}\NormalTok{(}\FunctionTok{c}\NormalTok{(}\StringTok{"orange"}\NormalTok{, }\StringTok{"blue"}\NormalTok{), }\AttributeTok{domain =}\NormalTok{ projet\_map}\SpecialCharTok{$}\NormalTok{sexe)}
+
+\CommentTok{\# creation de la carte}
+
+\NormalTok{v}\OtherTok{\textless{}{-}}\FunctionTok{leaflet}\NormalTok{() }\SpecialCharTok{\%\textgreater{}\%}
+    \FunctionTok{setView}\NormalTok{(}\AttributeTok{lng =} \SpecialCharTok{{-}}\DecValTok{14}\NormalTok{, }\AttributeTok{lat =} \DecValTok{14}\NormalTok{, }\AttributeTok{zoom =} \DecValTok{7}\NormalTok{) }\SpecialCharTok{\%\textgreater{}\%}
+    \FunctionTok{addTiles}\NormalTok{() }\SpecialCharTok{\%\textgreater{}\%} \CommentTok{\#Ligne à désactiver si l\textquotesingle{}on veut seulement afficher la carte de l\textquotesingle{}Afrique de l\textquotesingle{}ouest dans le map}
+    \FunctionTok{addPolygons}\NormalTok{(}
+      \AttributeTok{data =}\NormalTok{ Senegal,}
+      \AttributeTok{fillColor =} \StringTok{"white"}\NormalTok{,}
+      \AttributeTok{color =} \StringTok{"black"}\NormalTok{,}
+      \AttributeTok{weight =} \DecValTok{2}\NormalTok{,}
+      \AttributeTok{fillOpacity =} \FloatTok{0.1}
+\NormalTok{    )}\SpecialCharTok{\%\textgreater{}\%}
+    \FunctionTok{addCircleMarkers}\NormalTok{(        }\DocumentationTok{\#\#markers sous forme de cercle}
+      \AttributeTok{lng =}\NormalTok{ projet}\SpecialCharTok{$}\StringTok{"gps\_menlongitude"}\NormalTok{,}
+      \AttributeTok{lat =}\NormalTok{ projet}\SpecialCharTok{$}\StringTok{"gps\_menlatitude"}\NormalTok{,}
+      \AttributeTok{layerId =} \ConstantTok{NULL}\NormalTok{,}
+      \AttributeTok{radius =} \DecValTok{3}\NormalTok{,}
+      \AttributeTok{weight =} \DecValTok{1}\NormalTok{,}
+      \AttributeTok{opacity =} \FloatTok{0.2}\NormalTok{,}
+      \AttributeTok{fill =} \ConstantTok{TRUE}\NormalTok{,}
+      \AttributeTok{fillColor =} \StringTok{"white"}\NormalTok{,}
+      \AttributeTok{fillOpacity =} \FloatTok{0.2}\NormalTok{,}
+      \AttributeTok{color =} \FunctionTok{ifelse}\NormalTok{(projet}\SpecialCharTok{$}\NormalTok{sexe}\SpecialCharTok{==}\StringTok{"Femme"}\NormalTok{,}\StringTok{"orange"}\NormalTok{,}\StringTok{"blue"}\NormalTok{),}
+      \AttributeTok{popup =} \FunctionTok{ifelse}\NormalTok{(projet}\SpecialCharTok{$}\NormalTok{sexe}\SpecialCharTok{==}\StringTok{"Femme"}\NormalTok{,}\StringTok{"femme"}\NormalTok{,}\StringTok{"homme"}\NormalTok{),}
+      \AttributeTok{label =} \FunctionTok{ifelse}\NormalTok{(projet}\SpecialCharTok{$}\NormalTok{sexe}\SpecialCharTok{==}\StringTok{"Femme"}\NormalTok{,}\StringTok{"femme"}\NormalTok{,}\StringTok{"homme"}\NormalTok{),}
+      \AttributeTok{options =} \FunctionTok{markerOptions}\NormalTok{(),}
+      \AttributeTok{data =}\NormalTok{ projet\_map}
+\NormalTok{    ) }\SpecialCharTok{\%\textgreater{}\%} 
+  \FunctionTok{addLegend}\NormalTok{(}\AttributeTok{position =} \StringTok{"bottomright"}\NormalTok{,    }\CommentTok{\# placer la légende à  droite au fond}
+  \AttributeTok{pal =}\NormalTok{ couleurs\_sexe, }
+  \AttributeTok{values =}\NormalTok{ projet\_map}\SpecialCharTok{$}\NormalTok{sexe, }\AttributeTok{title =} \StringTok{"Sexe"}\NormalTok{)}
+
+
+\DocumentationTok{\#\# CApture}
+\FunctionTok{saveWidget}\NormalTok{(v, }\AttributeTok{file =} \StringTok{"Sexe.html"}\NormalTok{)}
+\FunctionTok{webshot}\NormalTok{(}\StringTok{"Sexe.html"}\NormalTok{, }\StringTok{"Sexe.png"}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\includegraphics{TANGOUO_Ivana_projet_R_ENSAE_2023_files/figure-latex/unnamed-chunk-19-1.png}
+
+\hypertarget{ruxe9partition-des-pme-suivant-le-niveau-dinstruction}{%
+\subsubsection{1.3.3. Répartition des PME suivant le niveau
+d'instruction}\label{ruxe9partition-des-pme-suivant-le-niveau-dinstruction}}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# Définir les couleurs pour chaque valeur de la colonne "niv d\textquotesingle{}instruction"}
+\NormalTok{couleurs\_niv }\OtherTok{\textless{}{-}} \FunctionTok{colorFactor}\NormalTok{(}\FunctionTok{c}\NormalTok{(}\StringTok{"blue"}\NormalTok{, }\StringTok{"red"}\NormalTok{,}\StringTok{"green"}\NormalTok{,}\StringTok{"yellow"}\NormalTok{), }\AttributeTok{domain =}\NormalTok{ projet\_map}\SpecialCharTok{$}\NormalTok{q25)}
+
+
+
+\NormalTok{t }\OtherTok{\textless{}{-}} \FunctionTok{leaflet}\NormalTok{() }\SpecialCharTok{\%\textgreater{}\%}
+   \FunctionTok{setView}\NormalTok{(}\AttributeTok{lng =} \SpecialCharTok{{-}}\DecValTok{14}\NormalTok{, }\AttributeTok{lat =} \DecValTok{14}\NormalTok{, }\AttributeTok{zoom =} \DecValTok{7}\NormalTok{) }\SpecialCharTok{\%\textgreater{}\%}
+  \FunctionTok{addTiles}\NormalTok{() }\SpecialCharTok{\%\textgreater{}\%}
+  \FunctionTok{addPolygons}\NormalTok{(}
+      \AttributeTok{data =}\NormalTok{ Senegal,}
+      \AttributeTok{fillColor =} \StringTok{"white"}\NormalTok{,}
+      \AttributeTok{color =} \StringTok{"black"}\NormalTok{,}
+      \AttributeTok{weight =} \DecValTok{2}\NormalTok{,}
+      \AttributeTok{fillOpacity =} \FloatTok{0.1}
+\NormalTok{      ) }\SpecialCharTok{\%\textgreater{}\%} 
+  \FunctionTok{addCircleMarkers}\NormalTok{(}\AttributeTok{data =}\NormalTok{ projet\_map,}\AttributeTok{color =} \SpecialCharTok{\textasciitilde{}}\FunctionTok{couleurs\_niv}\NormalTok{(q25),}
+      \AttributeTok{lng =}\NormalTok{ projet}\SpecialCharTok{$}\StringTok{"gps\_menlongitude"}\NormalTok{,}
+      \AttributeTok{lat =}\NormalTok{ projet}\SpecialCharTok{$}\StringTok{"gps\_menlatitude"}\NormalTok{,}
+      \AttributeTok{layerId =} \ConstantTok{NULL}\NormalTok{,}
+      \AttributeTok{radius =} \DecValTok{5}\NormalTok{,}
+      \AttributeTok{weight =} \DecValTok{2}\NormalTok{,}
+      \AttributeTok{opacity =} \FloatTok{0.2}\NormalTok{,}
+      \AttributeTok{fill =} \ConstantTok{TRUE}\NormalTok{,}
+      \AttributeTok{fillOpacity =} \FloatTok{0.2}\NormalTok{,)}\SpecialCharTok{\%\textgreater{}\%} 
+  \FunctionTok{addLegend}\NormalTok{(}\AttributeTok{position =} \StringTok{"bottomright"}\NormalTok{, }
+  \AttributeTok{pal =}\NormalTok{ couleurs\_niv, }
+  \AttributeTok{values =}\NormalTok{ projet\_map}\SpecialCharTok{$}\NormalTok{q25, }\AttributeTok{title =} \StringTok{"Niveau d\textquotesingle{}Instruction chef d\textquotesingle{}entreprise"}\NormalTok{)}
+
+
+\CommentTok{\#Nous  allons faire une capture d\textquotesingle{}écran de celle{-}ci avec la fonction webshot. }
+
+
+\FunctionTok{saveWidget}\NormalTok{(t, }\AttributeTok{file =} \StringTok{"Niv.html"}\NormalTok{)}
+\FunctionTok{webshot}\NormalTok{(}\StringTok{"Niv.html"}\NormalTok{, }\StringTok{"Niv.png"}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{center}\includegraphics{TANGOUO_Ivana_projet_R_ENSAE_2023_files/figure-latex/unnamed-chunk-20-1} \end{center}
+
+\hypertarget{repartion-des-pme-par-ruxe9gion}{%
+\subsubsection{Repartion des PME par
+Région}\label{repartion-des-pme-par-ruxe9gion}}
+
+Création de du dataframe qui compte les entreprises par région.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\#projet$nombre \textless{}{-} projet \%\textgreater{}\%dplyr::mutate(nombre==1)}
+
+\NormalTok{projeti }\OtherTok{\textless{}{-}}\NormalTok{ projet }\SpecialCharTok{\%\textgreater{}\%}
+  \FunctionTok{group\_by}\NormalTok{(region) }\SpecialCharTok{\%\textgreater{}\%}
+  \FunctionTok{count}\NormalTok{() }\SpecialCharTok{\%\textgreater{}\%}\FunctionTok{ungroup}\NormalTok{()}
+\NormalTok{projeti}\OtherTok{\textless{}{-}}\NormalTok{ projeti }\SpecialCharTok{\%\textgreater{}\%}\FunctionTok{mutate}\NormalTok{(}\AttributeTok{nombres\_entreprise=}\NormalTok{n)}
+\end{Highlighting}
+\end{Shaded}
+
+Création de la carte
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{Senegal1}\OtherTok{\textless{}{-}}\FunctionTok{merge}\NormalTok{(Senegal,projeti,}\AttributeTok{by.x =} \StringTok{"name"}\NormalTok{, }\AttributeTok{by.y =} \StringTok{"region"}\NormalTok{, }\AttributeTok{all.x =} \ConstantTok{TRUE}\NormalTok{)}
+
+\DocumentationTok{\#\# AJouter les coordonnées des régions}
+\NormalTok{regions }\OtherTok{\textless{}{-}} \FunctionTok{data.frame}\NormalTok{(}
+  \AttributeTok{region =} \FunctionTok{c}\NormalTok{(}\StringTok{"Dakar"}\NormalTok{, }\StringTok{"Thiès"}\NormalTok{, }\StringTok{"Fatick"}\NormalTok{, }\StringTok{"Kaolack"}\NormalTok{, }\StringTok{"Kaffrine"}\NormalTok{, }\StringTok{"Kédougou"}\NormalTok{, }\StringTok{"Kolda"}\NormalTok{, }\StringTok{"Louga"}\NormalTok{, }\StringTok{"Matam"}\NormalTok{, }\StringTok{"Saint{-}Louis"}\NormalTok{, }\StringTok{"Sédhiou"}\NormalTok{, }\StringTok{"Tambacounda"}\NormalTok{, }\StringTok{"Ziguinchor"}\NormalTok{),}
+  \AttributeTok{lon =} \FunctionTok{c}\NormalTok{(}\SpecialCharTok{{-}}\FloatTok{17.455390}\NormalTok{, }\SpecialCharTok{{-}}\FloatTok{16.920337}\NormalTok{, }\SpecialCharTok{{-}}\FloatTok{16.412964}\NormalTok{, }\SpecialCharTok{{-}}\FloatTok{16.073365}\NormalTok{, }\SpecialCharTok{{-}}\FloatTok{15.687128}\NormalTok{, }\SpecialCharTok{{-}}\FloatTok{12.220533}\NormalTok{, }\SpecialCharTok{{-}}\FloatTok{14.981073}\NormalTok{, }\SpecialCharTok{{-}}\FloatTok{16.246381}\NormalTok{, }\SpecialCharTok{{-}}\FloatTok{13.499487}\NormalTok{, }\SpecialCharTok{{-}}\FloatTok{16.519660}\NormalTok{, }\SpecialCharTok{{-}}\FloatTok{16.661667}\NormalTok{, }\SpecialCharTok{{-}}\FloatTok{13.757211}\NormalTok{, }\SpecialCharTok{{-}}\FloatTok{16.273499}\NormalTok{),}
+  \AttributeTok{lat =} \FunctionTok{c}\NormalTok{(}\FloatTok{14.693425}\NormalTok{, }\FloatTok{14.798658}\NormalTok{, }\FloatTok{14.339950}\NormalTok{, }\FloatTok{14.151858}\NormalTok{, }\FloatTok{14.101164}\NormalTok{, }\FloatTok{12.559404}\NormalTok{, }\FloatTok{12.887101}\NormalTok{, }\FloatTok{15.614472}\NormalTok{, }\FloatTok{15.650970}\NormalTok{, }\FloatTok{16.018926}\NormalTok{, }\FloatTok{12.708056}\NormalTok{, }\FloatTok{13.754040}\NormalTok{, }\FloatTok{12.585816}\NormalTok{)}
+\NormalTok{)}
+
+\CommentTok{\#senegal\_centroid \textless{}{-} st\_centroid(Senegal1)}
+\CommentTok{\# Créer la carte}
+\FunctionTok{ggplot}\NormalTok{(}\AttributeTok{data =}\NormalTok{ Senegal1) }\SpecialCharTok{+}
+  \FunctionTok{geom\_sf}\NormalTok{(}\FunctionTok{aes}\NormalTok{(}\AttributeTok{fill =}\NormalTok{ nombres\_entreprise), }\AttributeTok{color =} \StringTok{"white"}\NormalTok{) }\SpecialCharTok{+}
+  \FunctionTok{scale\_fill\_gradient}\NormalTok{(}\AttributeTok{low =} \StringTok{"lightblue"}\NormalTok{, }\AttributeTok{high =} \StringTok{"darkblue"}\NormalTok{) }\SpecialCharTok{+}
+  \FunctionTok{theme\_minimal}\NormalTok{()}\SpecialCharTok{+}
+  \FunctionTok{geom\_text}\NormalTok{(}\AttributeTok{data=}\NormalTok{regions,}\FunctionTok{aes}\NormalTok{(}\AttributeTok{x=}\NormalTok{lon,}\AttributeTok{y=}\NormalTok{lat,}\AttributeTok{label=}\NormalTok{region),}\AttributeTok{size=}\DecValTok{3}\NormalTok{,}\AttributeTok{nudge\_y=}\FloatTok{0.1}\NormalTok{)}\SpecialCharTok{+}
+  \FunctionTok{ggtitle}\NormalTok{(}\StringTok{"Repartion des entreprises par région"}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\includegraphics{TANGOUO_Ivana_projet_R_ENSAE_2023_files/figure-latex/unnamed-chunk-22-1.pdf}
+
+\hypertarget{partie-2}{%
+\section{PARTIE 2}\label{partie-2}}
+
+Importation de la base
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{projet2}\OtherTok{\textless{}{-}} \FunctionTok{read\_excel}\NormalTok{(}\StringTok{"Base\_Partie 2.xlsx"}\NormalTok{,}
+                     \AttributeTok{sheet =} \StringTok{"data"}\NormalTok{,}
+                     \AttributeTok{range =} \ConstantTok{NULL}\NormalTok{,}
+                     \AttributeTok{col\_names =} \ConstantTok{TRUE}\NormalTok{,}
+                     \AttributeTok{col\_types =} \ConstantTok{NULL}\NormalTok{) }
+\end{Highlighting}
+\end{Shaded}
+
+\#\#2. 1 Nettoyage et gestion des données
+
+\hypertarget{renommer-la-variable-country_destination-en-destination-et-duxe9finir-les-valeurs-nuxe9gatives-comme-manquantes.}{%
+\subsubsection{2.1.1 Renommer la variable ``country\_destination'' en
+``destination'' et définir les valeurs négatives comme
+manquantes.}\label{renommer-la-variable-country_destination-en-destination-et-duxe9finir-les-valeurs-nuxe9gatives-comme-manquantes.}}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{projet2 }\OtherTok{\textless{}{-}}\NormalTok{ projet2 }\SpecialCharTok{\%\textgreater{}\%}
+  \FunctionTok{mutate}\NormalTok{(}\AttributeTok{destination =} \FunctionTok{case\_when}\NormalTok{(}
+\NormalTok{    projet2}\SpecialCharTok{$}\NormalTok{country\_destination }\SpecialCharTok{\textless{}} \DecValTok{0} \SpecialCharTok{\textasciitilde{}} \ConstantTok{NA}\NormalTok{,}
+    \ConstantTok{TRUE} \SpecialCharTok{\textasciitilde{}}\NormalTok{ projet2}\SpecialCharTok{$}\NormalTok{country\_destination }
+\NormalTok{  ))}
+\end{Highlighting}
+\end{Shaded}
+
+\hypertarget{cruxe9ation-dune-nouvelle-variable-contenant-des-tranches-duxe2ge-de-5-ans-en-utilisant-la-variable-age}{%
+\subsubsection{2.1.2. Création d'une nouvelle variable contenant des
+tranches d'âge de 5 ans en utilisant la variable
+``age''}\label{cruxe9ation-dune-nouvelle-variable-contenant-des-tranches-duxe2ge-de-5-ans-en-utilisant-la-variable-age}}
+
+Après exploration de la base, nous avons vu un âge dun age de 999, qui
+est absurde que nous allons par la suite imputer à la moyenne des âges
+sans cette observation.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{projet2}\SpecialCharTok{$}\NormalTok{age [projet2}\SpecialCharTok{$}\NormalTok{age }\SpecialCharTok{==} \DecValTok{999}\NormalTok{] }\OtherTok{\textless{}{-}} \FunctionTok{round}\NormalTok{(}
+  \FunctionTok{mean}\NormalTok{(projet2}\SpecialCharTok{$}\NormalTok{age[projet2}\SpecialCharTok{$}\NormalTok{age }\SpecialCharTok{!=} \DecValTok{999}\NormalTok{], }\AttributeTok{na.rm =} \ConstantTok{TRUE}\NormalTok{)}
+\NormalTok{)}
+
+\CommentTok{\# Création des classes}
+
+\NormalTok{inter }\OtherTok{\textless{}{-}} \DecValTok{5}
+\NormalTok{limites\_classes }\OtherTok{\textless{}{-}} \FunctionTok{seq}\NormalTok{(}\FunctionTok{min}\NormalTok{(projet2}\SpecialCharTok{$}\NormalTok{age), }\FunctionTok{max}\NormalTok{(projet2}\SpecialCharTok{$}\NormalTok{age), }\AttributeTok{by =}\NormalTok{ inter)}
+
+\CommentTok{\# Créationr des classes d\textquotesingle{}âge en utilisant cut()}
+
+\NormalTok{projet2}\SpecialCharTok{$}\NormalTok{classes\_age }\OtherTok{\textless{}{-}} \FunctionTok{cut}\NormalTok{(projet2}\SpecialCharTok{$}\NormalTok{age, }\AttributeTok{breaks =} 
+\NormalTok{      limites\_classes, }\AttributeTok{labels =} \FunctionTok{paste0}\NormalTok{(}\StringTok{"\{"}\NormalTok{,limites\_classes}
+\NormalTok{          [}\SpecialCharTok{{-}}\FunctionTok{length}\NormalTok{(limites\_classes)], }\StringTok{";"}\NormalTok{, limites\_classes[}\SpecialCharTok{{-}}\DecValTok{1}\NormalTok{],}\StringTok{"\{"}\NormalTok{))}
+
+\DocumentationTok{\#\# placer la nouvelle variable creer pres de sexe}
+\NormalTok{projet2 }\OtherTok{\textless{}{-}}\NormalTok{ projet2}\SpecialCharTok{\%\textgreater{}\%} \FunctionTok{relocate}\NormalTok{(classes\_age, }\AttributeTok{.after =}\NormalTok{ sex)}
+
+\FunctionTok{kable}\NormalTok{(projet2[}\DecValTok{1}\SpecialCharTok{:}\DecValTok{3}\NormalTok{,}\DecValTok{3}\SpecialCharTok{:}\DecValTok{8}\NormalTok{],}\AttributeTok{format=}\StringTok{"latex"}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{tabular}{l|r|r|r|r|l}
+\hline
+endtime & enumerator & district & age & sex & classes\_age\\
+\hline
+2019-01-14 15:11:10 & 6 & 1 & 33 & 1 & \{30;35\{\\
+\hline
+2019-01-14 16:45:52 & 6 & 1 & 43 & 0 & NA\\
+\hline
+2019-01-14 17:45:47 & 6 & 1 & 28 & 0 & \{25;30\{\\
+\hline
+\end{tabular}
+
+\hypertarget{cruxe9ation-dune-nouvelle-variable-contenant-le-nombre-dentretiens-ruxe9alisuxe9s-par-chaque-agent-recenseur}{%
+\subsubsection{2.1.3. Création d'une nouvelle variable contenant le
+nombre d'entretiens réalisés par chaque agent
+recenseur}\label{cruxe9ation-dune-nouvelle-variable-contenant-le-nombre-dentretiens-ruxe9alisuxe9s-par-chaque-agent-recenseur}}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{projet2 }\OtherTok{\textless{}{-}}\NormalTok{ projet2 }\SpecialCharTok{\%\textgreater{}\%}
+  \FunctionTok{group\_by}\NormalTok{(enumerator) }\SpecialCharTok{\%\textgreater{}\%}
+  \FunctionTok{mutate}\NormalTok{(}\AttributeTok{nombre\_entretiens =} \FunctionTok{n}\NormalTok{()) }\SpecialCharTok{\%\textgreater{}\%}\FunctionTok{ungroup}\NormalTok{()}
+
+\DocumentationTok{\#\# relocalisation de la variable}
+\NormalTok{projet2 }\OtherTok{\textless{}{-}}\NormalTok{ projet2}\SpecialCharTok{\%\textgreater{}\%} \FunctionTok{relocate}\NormalTok{(nombre\_entretiens, }\AttributeTok{.after =}\NormalTok{ enumerator)}
+\FunctionTok{kable}\NormalTok{(projet2[}\DecValTok{1}\SpecialCharTok{:}\DecValTok{3}\NormalTok{,}\DecValTok{1}\SpecialCharTok{:}\DecValTok{6}\NormalTok{], }\AttributeTok{format=}\StringTok{"latex"}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{tabular}{r|l|l|r|r|r}
+\hline
+id & starttime & endtime & enumerator & nombre\_entretiens & district\\
+\hline
+2 & 2019-01-14 14:56:37 & 2019-01-14 15:11:10 & 6 & 5 & 1\\
+\hline
+3 & 2019-01-14 16:12:22 & 2019-01-14 16:45:52 & 6 & 5 & 1\\
+\hline
+4 & 2019-01-14 17:15:47 & 2019-01-14 17:45:47 & 6 & 5 & 1\\
+\hline
+\end{tabular}
+
+\hypertarget{cruxe9ation-dune-nouvelle-variable-qui-affecte-aluxe9atoirement-chaque-ruxe9pondant-uxe0-un-groupe-de-traitement-1-ou-de-controle-0}{%
+\subsubsection{2.1.4. Création d'une nouvelle variable qui affecte
+aléatoirement chaque répondant à un groupe de traitement (1) ou de
+controle
+(0)}\label{cruxe9ation-dune-nouvelle-variable-qui-affecte-aluxe9atoirement-chaque-ruxe9pondant-uxe0-un-groupe-de-traitement-1-ou-de-controle-0}}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{set.seed}\NormalTok{(}\DecValTok{124}\NormalTok{)}
+\NormalTok{projet2 }\OtherTok{\textless{}{-}}\NormalTok{ projet2 }\SpecialCharTok{\%\textgreater{}\%}
+  \FunctionTok{mutate}\NormalTok{(}\AttributeTok{groupe =} \FunctionTok{sample}\NormalTok{(}\FunctionTok{c}\NormalTok{(}\DecValTok{0}\NormalTok{, }\DecValTok{1}\NormalTok{), }\AttributeTok{size =} \FunctionTok{nrow}\NormalTok{(projet2), }
+                         \AttributeTok{replace =} \ConstantTok{TRUE}\NormalTok{))}
+\end{Highlighting}
+\end{Shaded}
+
+\hypertarget{fusioner-les-base-district-et-data}{%
+\subsubsection{2.1.5. Fusioner les base district et
+data}\label{fusioner-les-base-district-et-data}}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{feuille\_2 }\OtherTok{\textless{}{-}} \FunctionTok{read\_excel}\NormalTok{(}\StringTok{"Base\_Partie 2.xlsx"}\NormalTok{, }
+    \AttributeTok{sheet =} \StringTok{"district"}\NormalTok{)}
+
+\NormalTok{projet2 }\OtherTok{\textless{}{-}}\FunctionTok{merge}\NormalTok{(projet2 , feuille\_2,}\AttributeTok{by=}\StringTok{"district"}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\hypertarget{duruxe9e-et-duruxe9e-moyenne-de-lentretien}{%
+\subsubsection{2.1.6. Durée et Durée moyenne de
+l'entretien}\label{duruxe9e-et-duruxe9e-moyenne-de-lentretien}}
+
+Determinons tout d'abord les durées les entretiens par interview, nous
+allons ensuite les regrouper par enquêteur afin de calculer la moyenne
+des durée des enquêtes par enquêteurs.Nous allon importer la librairies
+lubridate qi permet de faire la manipulation sur les variables
+temporelles.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{projet2 }\OtherTok{\textless{}{-}}\NormalTok{projet2 }\SpecialCharTok{\%\textgreater{}\%}
+  \FunctionTok{mutate}\NormalTok{(}\AttributeTok{duree\_entretien=}\NormalTok{endtime}\SpecialCharTok{{-}}\NormalTok{starttime )}
+
+\DocumentationTok{\#\# RELOCALISATION}
+\NormalTok{projet2 }\OtherTok{\textless{}{-}}\NormalTok{ projet2}\SpecialCharTok{\%\textgreater{}\%} \FunctionTok{relocate}\NormalTok{(duree\_entretien, }\AttributeTok{.after =}\NormalTok{ nombre\_entretiens)}
+
+\CommentTok{\# MOYENNE par enqueteur}
+\NormalTok{projet2 }\OtherTok{\textless{}{-}}\NormalTok{ projet2 }\SpecialCharTok{\%\textgreater{}\%}
+  \FunctionTok{group\_by}\NormalTok{(enumerator) }\SpecialCharTok{\%\textgreater{}\%}
+  \FunctionTok{mutate}\NormalTok{(}\AttributeTok{duree\_moyen =}\FunctionTok{sum}\NormalTok{(duree\_entretien)}\SpecialCharTok{/}\NormalTok{nombre\_entretiens) }\SpecialCharTok{\%\textgreater{}\%}\FunctionTok{ungroup}\NormalTok{()}
+
+\CommentTok{\# Relocalisation}
+\NormalTok{projet2 }\OtherTok{\textless{}{-}}\NormalTok{ projet2}\SpecialCharTok{\%\textgreater{}\%} \FunctionTok{relocate}\NormalTok{(duree\_moyen, }\AttributeTok{.after =}\NormalTok{ duree\_entretien)}
+
+\FunctionTok{kable}\NormalTok{(projet2[}\DecValTok{1}\SpecialCharTok{:}\DecValTok{3}\NormalTok{,}\DecValTok{4}\SpecialCharTok{:}\DecValTok{8}\NormalTok{], }\AttributeTok{format=}\StringTok{"latex"}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{tabular}{l|r|r|l|l}
+\hline
+endtime & enumerator & nombre\_entretiens & duree\_entretien & duree\_moyen\\
+\hline
+2019-01-14 15:11:10 & 6 & 5 & 14.55 mins & 25.84667 mins\\
+\hline
+2019-01-14 16:45:52 & 6 & 5 & 33.50 mins & 25.84667 mins\\
+\hline
+2019-01-14 17:45:47 & 6 & 5 & 30.00 mins & 25.84667 mins\\
+\hline
+\end{tabular}
+
+\hypertarget{renommage-des-variables-en-y-ajoutant-le-suffixe-endline}{%
+\subsubsection{2.1.7. Renommage des variables en y ajoutant le suffixe
+endline}\label{renommage-des-variables-en-y-ajoutant-le-suffixe-endline}}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{projet3 }\OtherTok{\textless{}{-}}\NormalTok{ projet2 }\SpecialCharTok{\%\textgreater{}\%} \FunctionTok{rename\_all}\NormalTok{(}\SpecialCharTok{\textasciitilde{}} \FunctionTok{paste0}\NormalTok{(}\StringTok{"endline"}\NormalTok{, .))}
+
+\FunctionTok{kable}\NormalTok{(projet3[}\DecValTok{1}\SpecialCharTok{:}\DecValTok{3}\NormalTok{,}\DecValTok{1}\SpecialCharTok{:}\DecValTok{3}\NormalTok{], }\AttributeTok{format=}\StringTok{"latex"}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{tabular}{r|r|l}
+\hline
+endlinedistrict & endlineid & endlinestarttime\\
+\hline
+1 & 2 & 2019-01-14 14:56:37\\
+\hline
+1 & 3 & 2019-01-14 16:12:22\\
+\hline
+1 & 4 & 2019-01-14 17:15:47\\
+\hline
+\end{tabular}
+
+\hypertarget{analyse-et-visualisation-des-donnuxe9es}{%
+\subsection{2.2. Analyse et visualisation des
+données}\label{analyse-et-visualisation-des-donnuxe9es}}
+
+\hypertarget{tableau-ruxe9capitulatif-de-lage-moyen-et-denfants-moyen-par-district}{%
+\subsubsection{2.2.1. Tableau récapitulatif de l'age moyen et d'enfants
+moyen par
+district}\label{tableau-ruxe9capitulatif-de-lage-moyen-et-denfants-moyen-par-district}}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{mean\_tab }\OtherTok{\textless{}{-}}\NormalTok{ flextable}\SpecialCharTok{::}\FunctionTok{as\_flextable}\NormalTok{(projet2 }\SpecialCharTok{\%\textgreater{}\%} 
+          \FunctionTok{group\_by}\NormalTok{(district) }\SpecialCharTok{\%\textgreater{}\%} \FunctionTok{summarise}\NormalTok{(}\AttributeTok{Age\_Moyen =} \FunctionTok{mean}\NormalTok{(age),}
+          \AttributeTok{Enfant\_Moyen =} \FunctionTok{mean}\NormalTok{(children\_num)))}
+\NormalTok{mean\_tab}
+\end{Highlighting}
+\end{Shaded}
+
+\global\setlength{\Oldarrayrulewidth}{\arrayrulewidth}
+
+\global\setlength{\Oldtabcolsep}{\tabcolsep}
+
+\setlength{\tabcolsep}{0pt}
+
+\renewcommand*{\arraystretch}{1.5}
+
+
+
+\providecommand{\ascline}[3]{\noalign{\global\arrayrulewidth #1}\arrayrulecolor[HTML]{#2}\cline{#3}}
+
+\begin{longtable}[c]{|p{0.83in}|p{1.10in}|p{1.27in}}
+
+
+
+\ascline{1.5pt}{666666}{1-3}
+
+\multicolumn{1}{>{\raggedleft}m{\dimexpr 0.83in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{district}}} & \multicolumn{1}{>{\raggedleft}m{\dimexpr 1.1in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{Age\_Moyen}}} & \multicolumn{1}{>{\raggedleft}m{\dimexpr 1.27in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{Enfant\_Moyen}}} \\
+
+
+
+
+
+\multicolumn{1}{>{\raggedleft}m{\dimexpr 0.83in+0\tabcolsep}}{\textcolor[HTML]{999999}{\fontsize{11}{11}\selectfont{numeric}}} & \multicolumn{1}{>{\raggedleft}m{\dimexpr 1.1in+0\tabcolsep}}{\textcolor[HTML]{999999}{\fontsize{11}{11}\selectfont{numeric}}} & \multicolumn{1}{>{\raggedleft}m{\dimexpr 1.27in+0\tabcolsep}}{\textcolor[HTML]{999999}{\fontsize{11}{11}\selectfont{numeric}}} \\
+
+\ascline{1.5pt}{666666}{1-3}\endfirsthead 
+
+\ascline{1.5pt}{666666}{1-3}
+
+\multicolumn{1}{>{\raggedleft}m{\dimexpr 0.83in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{district}}} & \multicolumn{1}{>{\raggedleft}m{\dimexpr 1.1in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{Age\_Moyen}}} & \multicolumn{1}{>{\raggedleft}m{\dimexpr 1.27in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{Enfant\_Moyen}}} \\
+
+
+
+
+
+\multicolumn{1}{>{\raggedleft}m{\dimexpr 0.83in+0\tabcolsep}}{\textcolor[HTML]{999999}{\fontsize{11}{11}\selectfont{numeric}}} & \multicolumn{1}{>{\raggedleft}m{\dimexpr 1.1in+0\tabcolsep}}{\textcolor[HTML]{999999}{\fontsize{11}{11}\selectfont{numeric}}} & \multicolumn{1}{>{\raggedleft}m{\dimexpr 1.27in+0\tabcolsep}}{\textcolor[HTML]{999999}{\fontsize{11}{11}\selectfont{numeric}}} \\
+
+\ascline{1.5pt}{666666}{1-3}\endhead
+
+
+
+\multicolumn{1}{>{\raggedleft}m{\dimexpr 0.83in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{1}}} & \multicolumn{1}{>{\raggedleft}m{\dimexpr 1.1in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{29.6}}} & \multicolumn{1}{>{\raggedleft}m{\dimexpr 1.27in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{1.5}}} \\
+
+
+
+
+
+\multicolumn{1}{>{\raggedleft}m{\dimexpr 0.83in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{2}}} & \multicolumn{1}{>{\raggedleft}m{\dimexpr 1.1in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{26.6}}} & \multicolumn{1}{>{\raggedleft}m{\dimexpr 1.27in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{0.9}}} \\
+
+
+
+
+
+\multicolumn{1}{>{\raggedleft}m{\dimexpr 0.83in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{3}}} & \multicolumn{1}{>{\raggedleft}m{\dimexpr 1.1in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{26.1}}} & \multicolumn{1}{>{\raggedleft}m{\dimexpr 1.27in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{0.0}}} \\
+
+
+
+
+
+\multicolumn{1}{>{\raggedleft}m{\dimexpr 0.83in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{4}}} & \multicolumn{1}{>{\raggedleft}m{\dimexpr 1.1in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{26.0}}} & \multicolumn{1}{>{\raggedleft}m{\dimexpr 1.27in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{0.0}}} \\
+
+
+
+
+
+\multicolumn{1}{>{\raggedleft}m{\dimexpr 0.83in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{5}}} & \multicolumn{1}{>{\raggedleft}m{\dimexpr 1.1in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{24.3}}} & \multicolumn{1}{>{\raggedleft}m{\dimexpr 1.27in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{0.5}}} \\
+
+
+
+
+
+\multicolumn{1}{>{\raggedleft}m{\dimexpr 0.83in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{6}}} & \multicolumn{1}{>{\raggedleft}m{\dimexpr 1.1in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{23.2}}} & \multicolumn{1}{>{\raggedleft}m{\dimexpr 1.27in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{0.1}}} \\
+
+
+
+
+
+\multicolumn{1}{>{\raggedleft}m{\dimexpr 0.83in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{7}}} & \multicolumn{1}{>{\raggedleft}m{\dimexpr 1.1in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{28.0}}} & \multicolumn{1}{>{\raggedleft}m{\dimexpr 1.27in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{0.2}}} \\
+
+
+
+
+
+\multicolumn{1}{>{\raggedleft}m{\dimexpr 0.83in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{8}}} & \multicolumn{1}{>{\raggedleft}m{\dimexpr 1.1in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{24.6}}} & \multicolumn{1}{>{\raggedleft}m{\dimexpr 1.27in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{1.3}}} \\
+
+\ascline{1.5pt}{666666}{1-3}
+
+
+
+\end{longtable}
+
+
+
+\arrayrulecolor[HTML]{000000}
+
+\global\setlength{\arrayrulewidth}{\Oldarrayrulewidth}
+
+\global\setlength{\tabcolsep}{\Oldtabcolsep}
+
+\renewcommand*{\arraystretch}{1}
+
+\hypertarget{testons-si-la-diffuxe9rence-duxe2ge-entre-les-sexes-est-statistiquement-significative-au-niveau-de-5}{%
+\subsubsection{2.2.2. Testons si la différence d'âge entre les sexes est
+statistiquement significative au niveau de 5
+\%}\label{testons-si-la-diffuxe9rence-duxe2ge-entre-les-sexes-est-statistiquement-significative-au-niveau-de-5}}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{test}\OtherTok{\textless{}{-}}\NormalTok{projet2 }\SpecialCharTok{\%\textgreater{}\%}
+\NormalTok{dplyr}\SpecialCharTok{::}\FunctionTok{select}\NormalTok{(sex ,age) }\SpecialCharTok{\%\textgreater{}\%}
+\NormalTok{gtsummary}\SpecialCharTok{::}\FunctionTok{tbl\_summary}\NormalTok{(}
+  \AttributeTok{by =}\NormalTok{ sex,}
+  \AttributeTok{label =}\NormalTok{ age }\SpecialCharTok{\textasciitilde{}} \StringTok{"Tranche d\textquotesingle{}age"}\NormalTok{, }
+  \AttributeTok{percent =} \StringTok{"column"}\NormalTok{,}
+                    \AttributeTok{statistic=}\NormalTok{age}\SpecialCharTok{\textasciitilde{}}\StringTok{"\{mean\}"}\NormalTok{)}\SpecialCharTok{\%\textgreater{}\%} \FunctionTok{add\_n}\NormalTok{() }\SpecialCharTok{\%\textgreater{}\%}
+  \FunctionTok{add\_difference}\NormalTok{() }\SpecialCharTok{\%\textgreater{}\%}
+  \FunctionTok{bold\_labels}\NormalTok{() }\SpecialCharTok{\%\textgreater{}\%} 
+   \FunctionTok{as\_flex\_table}\NormalTok{()}\SpecialCharTok{\%\textgreater{}\%} 
+  \FunctionTok{width}\NormalTok{(}\AttributeTok{width=}\DecValTok{1}\NormalTok{)}
+\NormalTok{test}
+\end{Highlighting}
+\end{Shaded}
+
+\global\setlength{\Oldarrayrulewidth}{\arrayrulewidth}
+
+\global\setlength{\Oldtabcolsep}{\tabcolsep}
+
+\setlength{\tabcolsep}{0pt}
+
+\renewcommand*{\arraystretch}{1.5}
+
+
+
+\providecommand{\ascline}[3]{\noalign{\global\arrayrulewidth #1}\arrayrulecolor[HTML]{#2}\cline{#3}}
+
+\begin{longtable}[c]{|p{1.00in}|p{1.00in}|p{1.00in}|p{1.00in}|p{1.00in}|p{1.00in}|p{1.00in}}
+
+
+
+\ascline{1pt}{000000}{1-7}
+
+\multicolumn{1}{>{\raggedright}m{\dimexpr 1in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{\textbf{Characteristic}}}} & \multicolumn{1}{>{\centering}m{\dimexpr 1in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{\textbf{N}}}} & \multicolumn{1}{>{\centering}m{\dimexpr 1in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{\textbf{0}}}\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{,\ N\ =\ 86}}\textcolor[HTML]{000000}{\textsuperscript{\fontsize{11}{11}\selectfont{1}}}} & \multicolumn{1}{>{\centering}m{\dimexpr 1in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{\textbf{1}}}\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{,\ N\ =\ 11}}\textcolor[HTML]{000000}{\textsuperscript{\fontsize{11}{11}\selectfont{1}}}} & \multicolumn{1}{>{\centering}m{\dimexpr 1in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{\textbf{Difference}}}\textcolor[HTML]{000000}{\textsuperscript{\fontsize{11}{11}\selectfont{2}}}} & \multicolumn{1}{>{\centering}m{\dimexpr 1in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{\textbf{95\%\ CI}}}\textcolor[HTML]{000000}{\textsuperscript{\fontsize{11}{11}\selectfont{2}}}\textcolor[HTML]{000000}{\textsuperscript{\fontsize{11}{11}\selectfont{3}}}} & \multicolumn{1}{>{\centering}m{\dimexpr 1in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{\textbf{p-value}}}\textcolor[HTML]{000000}{\textsuperscript{\fontsize{11}{11}\selectfont{2}}}} \\
+
+\ascline{1pt}{000000}{1-7}\endfirsthead 
+
+\ascline{1pt}{000000}{1-7}
+
+\multicolumn{1}{>{\raggedright}m{\dimexpr 1in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{\textbf{Characteristic}}}} & \multicolumn{1}{>{\centering}m{\dimexpr 1in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{\textbf{N}}}} & \multicolumn{1}{>{\centering}m{\dimexpr 1in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{\textbf{0}}}\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{,\ N\ =\ 86}}\textcolor[HTML]{000000}{\textsuperscript{\fontsize{11}{11}\selectfont{1}}}} & \multicolumn{1}{>{\centering}m{\dimexpr 1in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{\textbf{1}}}\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{,\ N\ =\ 11}}\textcolor[HTML]{000000}{\textsuperscript{\fontsize{11}{11}\selectfont{1}}}} & \multicolumn{1}{>{\centering}m{\dimexpr 1in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{\textbf{Difference}}}\textcolor[HTML]{000000}{\textsuperscript{\fontsize{11}{11}\selectfont{2}}}} & \multicolumn{1}{>{\centering}m{\dimexpr 1in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{\textbf{95\%\ CI}}}\textcolor[HTML]{000000}{\textsuperscript{\fontsize{11}{11}\selectfont{2}}}\textcolor[HTML]{000000}{\textsuperscript{\fontsize{11}{11}\selectfont{3}}}} & \multicolumn{1}{>{\centering}m{\dimexpr 1in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{\textbf{p-value}}}\textcolor[HTML]{000000}{\textsuperscript{\fontsize{11}{11}\selectfont{2}}}} \\
+
+\ascline{1pt}{000000}{1-7}\endhead
+
+
+
+\multicolumn{7}{>{\raggedright}m{\dimexpr 7in+12\tabcolsep}}{\textcolor[HTML]{000000}{\textsuperscript{\fontsize{11}{11}\selectfont{1}}}\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{Mean}}} \\
+
+
+
+
+
+\multicolumn{7}{>{\raggedright}m{\dimexpr 7in+12\tabcolsep}}{\textcolor[HTML]{000000}{\textsuperscript{\fontsize{11}{11}\selectfont{2}}}\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{Welch\ Two\ Sample\ t-test}}} \\
+
+
+
+
+
+\multicolumn{7}{>{\raggedright}m{\dimexpr 7in+12\tabcolsep}}{\textcolor[HTML]{000000}{\textsuperscript{\fontsize{11}{11}\selectfont{3}}}\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{CI\ =\ Confidence\ Interval}}} \\
+
+\endfoot
+
+
+
+\multicolumn{1}{>{\raggedright}p{\dimexpr 1in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{\textbf{Tranche\ d'age}}}} & \multicolumn{1}{>{\centering}p{\dimexpr 1in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{97}}} & \multicolumn{1}{>{\centering}p{\dimexpr 1in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{26}}} & \multicolumn{1}{>{\centering}p{\dimexpr 1in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{22}}} & \multicolumn{1}{>{\centering}p{\dimexpr 1in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{3.6}}} & \multicolumn{1}{>{\centering}p{\dimexpr 1in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{-0.02,\ 7.3}}} & \multicolumn{1}{>{\centering}p{\dimexpr 1in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{0.051}}} \\
+
+\ascline{1pt}{000000}{1-7}
+
+
+
+\end{longtable}
+
+
+
+\arrayrulecolor[HTML]{000000}
+
+\global\setlength{\arrayrulewidth}{\Oldarrayrulewidth}
+
+\global\setlength{\tabcolsep}{\Oldtabcolsep}
+
+\renewcommand*{\arraystretch}{1}
+
+\hypertarget{nuage-de-points-de-luxe2ge-en-fonction-du-nombre-denfants}{%
+\subsubsection{2.2.3. Nuage de points de l'âge en fonction du nombre
+d'enfants}\label{nuage-de-points-de-luxe2ge-en-fonction-du-nombre-denfants}}
+
+On importe les librairies ggplot et ggExtra pour faire nos differents
+graphes
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{graph }\OtherTok{\textless{}{-}} \FunctionTok{ggplot}\NormalTok{(projet2, }\FunctionTok{aes}\NormalTok{(}\AttributeTok{x=}\NormalTok{age, }\AttributeTok{y=}\NormalTok{children\_num, }\AttributeTok{color=}\NormalTok{sex)) }\SpecialCharTok{+}
+      \FunctionTok{geom\_point}\NormalTok{() }\SpecialCharTok{+}
+      \FunctionTok{theme}\NormalTok{(}\AttributeTok{legend.position=}\StringTok{"none"}\NormalTok{)}\SpecialCharTok{+}
+      \FunctionTok{labs}\NormalTok{(}\AttributeTok{x =} \StringTok{"Âge"}\NormalTok{, }\AttributeTok{y =} \StringTok{"Nombre d\textquotesingle{}enfants"}\NormalTok{)}
+
+\NormalTok{graph1 }\OtherTok{\textless{}{-}} \FunctionTok{ggMarginal}\NormalTok{(graph, }\AttributeTok{type=}\StringTok{"histogram"}\NormalTok{)}
+\NormalTok{graph2 }\OtherTok{\textless{}{-}} \FunctionTok{ggMarginal}\NormalTok{(graph, }\AttributeTok{type=}\StringTok{"density"}\NormalTok{)}
+\NormalTok{graph3 }\OtherTok{\textless{}{-}} \FunctionTok{ggMarginal}\NormalTok{(graph, }\AttributeTok{type=}\StringTok{"boxplot"}\NormalTok{)}
+
+
+\DocumentationTok{\#\# POsitionner les différents  graphes dans la grille}
+\FunctionTok{grid.arrange}\NormalTok{(graph1, graph2,}\AttributeTok{ncol =} \DecValTok{2}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\includegraphics{TANGOUO_Ivana_projet_R_ENSAE_2023_files/figure-latex/unnamed-chunk-33-1.pdf}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{grid.arrange}\NormalTok{(graph3,}\AttributeTok{ncol =} \DecValTok{1}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\includegraphics{TANGOUO_Ivana_projet_R_ENSAE_2023_files/figure-latex/unnamed-chunk-33-2.pdf}
+
+\begin{itemize}
+\tightlist
+\item
+  Ici nous avons fait sortir le nuage de point , l'histogramme et la
+  densité des distributions
+\end{itemize}
+
+\hypertarget{estimation-de-leffet-de-lappartenance-au-groupe-sur-la-duxe9cision-de-migrer}{%
+\subsubsection{2.2.4. Estimation de l'effet de l'appartenance au groupe
+sur la décision de
+migrer}\label{estimation-de-leffet-de-lappartenance-au-groupe-sur-la-duxe9cision-de-migrer}}
+
+Nous allons importer la librairies nnet, GGally,effects, gridExtra qui
+permettre de faire des regressions. Nous allons utiliser la variable de
+traitement ou controle, groupe que nous avons creer plus haut.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{regm }\OtherTok{\textless{}{-}} \FunctionTok{multinom}\NormalTok{(intention }\SpecialCharTok{\textasciitilde{}}\NormalTok{ groupe ,}\AttributeTok{data =}\NormalTok{ projet2)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## # weights:  21 (12 variable)
+## initial  value 188.753284 
+## iter  10 value 116.054405
+## final  value 116.047188 
+## converged
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{tbl1 }\OtherTok{\textless{}{-}} \FunctionTok{tbl\_regression}\NormalTok{(regm, }\AttributeTok{exponentiate =} \ConstantTok{TRUE}\NormalTok{) }
+\NormalTok{tbl1}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{tabular}{l|l|c|c|c}
+\hline
+**Outcome** & **Characteristic** & **OR** & **95\% CI** & **p-value**\\
+\hline
+2 & groupe & 2.91 & 0.29, 29.5 & 0.4\\
+\hline
+3 & groupe & 8.72 & 1.04, 72.9 & 0.046\\
+\hline
+4 & groupe & 0.73 & 0.15, 3.51 & 0.7\\
+\hline
+5 & groupe & 0.48 & 0.08, 2.84 & 0.4\\
+\hline
+6 & groupe & 1.45 & 0.23, 9.30 & 0.7\\
+\hline
+7 & groupe & 0.97 & 0.06, 16.2 & >0.9\\
+\hline
+\end{tabular}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# Visualisation du modèle créer}
+\FunctionTok{ggcoef\_multinom}\NormalTok{(}
+\NormalTok{  regm,}
+  \AttributeTok{exponentiate =} \ConstantTok{TRUE}
+\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\includegraphics{TANGOUO_Ivana_projet_R_ENSAE_2023_files/figure-latex/unnamed-chunk-34-1.pdf}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# visualisons l\textquotesingle{}effet marginal des variables}
+\FunctionTok{plot}\NormalTok{(}\FunctionTok{allEffects}\NormalTok{(regm))}
+\end{Highlighting}
+\end{Shaded}
+
+\includegraphics{TANGOUO_Ivana_projet_R_ENSAE_2023_files/figure-latex/unnamed-chunk-34-2.pdf}
+
+\hypertarget{tableau-de-regression-avec-trois-moduxe8les}{%
+\subsubsection{2.2.5. Tableau de regression avec trois
+modèles}\label{tableau-de-regression-avec-trois-moduxe8les}}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{modele }\OtherTok{\textless{}{-}}\NormalTok{ stats}\SpecialCharTok{::}\FunctionTok{lm}\NormalTok{(intention }\SpecialCharTok{\textasciitilde{}}\NormalTok{ groupe, }\AttributeTok{data =}\NormalTok{ projet2)}
+\NormalTok{modele }\SpecialCharTok{\%\textgreater{}\%}\NormalTok{ gtsummary}\SpecialCharTok{::}\FunctionTok{tbl\_regression}\NormalTok{()}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{tabular}{l|c|c|c}
+\hline
+**Characteristic** & **Beta** & **95\% CI** & **p-value**\\
+\hline
+groupe & 0.05 & -0.66, 0.75 & 0.9\\
+\hline
+\end{tabular}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# Modèle A : Modèle vide {-} Effet du traitement sur les intentions}
+\NormalTok{modele\_A }\OtherTok{\textless{}{-}}\NormalTok{ stats}\SpecialCharTok{::}\FunctionTok{lm}\NormalTok{(intention }\SpecialCharTok{\textasciitilde{}}\NormalTok{ groupe, }\AttributeTok{data =}\NormalTok{ projet2)}
+\NormalTok{tableau\_A }\OtherTok{\textless{}{-}} \FunctionTok{tbl\_regression}\NormalTok{(modele\_A)}
+
+\CommentTok{\# Modèle B : Effet du traitement sur les intentions en tenant compte de l\textquotesingle{}âge et du sexe}
+\NormalTok{modele\_B }\OtherTok{\textless{}{-}}\NormalTok{ stats}\SpecialCharTok{::}\FunctionTok{lm}\NormalTok{(intention }\SpecialCharTok{\textasciitilde{}}\NormalTok{ groupe }\SpecialCharTok{+}\NormalTok{ age }\SpecialCharTok{+}\NormalTok{ sex, }\AttributeTok{data =}\NormalTok{ projet2)}
+\NormalTok{tableau\_B }\OtherTok{\textless{}{-}} \FunctionTok{tbl\_regression}\NormalTok{(modele\_B)}
+
+\CommentTok{\# Modèle C : Identique au modèle B mais en contrôlant le district}
+\NormalTok{modele\_C }\OtherTok{\textless{}{-}}\NormalTok{ stats}\SpecialCharTok{::}\FunctionTok{lm}\NormalTok{(intention }\SpecialCharTok{\textasciitilde{}}\NormalTok{ groupe }\SpecialCharTok{+}\NormalTok{ age }\SpecialCharTok{+}\NormalTok{ sex }\SpecialCharTok{+}\NormalTok{ district, }\AttributeTok{data =}\NormalTok{ projet2)}
+
+\NormalTok{tableau\_C }\OtherTok{\textless{}{-}} \FunctionTok{tbl\_regression}\NormalTok{(modele\_C)}
+
+\CommentTok{\# Création du tableau récapitulatif des résultats des trois modèles}
+\NormalTok{tableau\_final }\OtherTok{\textless{}{-}} \FunctionTok{tbl\_merge}\NormalTok{(}\FunctionTok{list}\NormalTok{(tableau\_A, tableau\_B, tableau\_C),}
+              \AttributeTok{tab\_spanner =} \FunctionTok{c}\NormalTok{(}\StringTok{"Modèle A"}\NormalTok{,}\StringTok{"Modèle B"}\NormalTok{,}\StringTok{"Modèle C"}\NormalTok{))}\SpecialCharTok{\%\textgreater{}\%} \FunctionTok{as\_flex\_table}\NormalTok{()}\SpecialCharTok{\%\textgreater{}\%}
+  \FunctionTok{fontsize}\NormalTok{() }\SpecialCharTok{\%\textgreater{}\%} 
+  \FunctionTok{width}\NormalTok{(}\AttributeTok{width=}\DecValTok{1}\NormalTok{)}
+
+\CommentTok{\# affichage}
+\NormalTok{tableau\_final}
+\end{Highlighting}
+\end{Shaded}
+
+\global\setlength{\Oldarrayrulewidth}{\arrayrulewidth}
+
+\global\setlength{\Oldtabcolsep}{\tabcolsep}
+
+\setlength{\tabcolsep}{0pt}
+
+\renewcommand*{\arraystretch}{1.5}
+
+
+
+\providecommand{\ascline}[3]{\noalign{\global\arrayrulewidth #1}\arrayrulecolor[HTML]{#2}\cline{#3}}
+
+\begin{longtable}[c]{|p{1.00in}|p{1.00in}|p{1.00in}|p{1.00in}|p{1.00in}|p{1.00in}|p{1.00in}|p{1.00in}|p{1.00in}|p{1.00in}}
+
+
+
+\ascline{1pt}{000000}{1-10}
+
+\multicolumn{1}{>{\raggedright}m{\dimexpr 1in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{\ }}} & \multicolumn{3}{>{\centering}m{\dimexpr 3in+4\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{Modèle\ A}}} & \multicolumn{3}{>{\centering}m{\dimexpr 3in+4\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{Modèle\ B}}} & \multicolumn{3}{>{\centering}m{\dimexpr 3in+4\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{Modèle\ C}}} \\
+
+\ascline{1pt}{000000}{1-10}
+
+
+
+\multicolumn{1}{>{\raggedright}m{\dimexpr 1in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{\textbf{Characteristic}}}} & \multicolumn{1}{>{\centering}m{\dimexpr 1in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{\textbf{Beta}}}} & \multicolumn{1}{>{\centering}m{\dimexpr 1in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{\textbf{95\%\ CI}}}\textcolor[HTML]{000000}{\textsuperscript{\fontsize{11}{11}\selectfont{1}}}} & \multicolumn{1}{>{\centering}m{\dimexpr 1in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{\textbf{p-value}}}} & \multicolumn{1}{>{\centering}m{\dimexpr 1in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{\textbf{Beta}}}} & \multicolumn{1}{>{\centering}m{\dimexpr 1in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{\textbf{95\%\ CI}}}\textcolor[HTML]{000000}{\textsuperscript{\fontsize{11}{11}\selectfont{1}}}} & \multicolumn{1}{>{\centering}m{\dimexpr 1in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{\textbf{p-value}}}} & \multicolumn{1}{>{\centering}m{\dimexpr 1in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{\textbf{Beta}}}} & \multicolumn{1}{>{\centering}m{\dimexpr 1in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{\textbf{95\%\ CI}}}\textcolor[HTML]{000000}{\textsuperscript{\fontsize{11}{11}\selectfont{1}}}} & \multicolumn{1}{>{\centering}m{\dimexpr 1in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{\textbf{p-value}}}} \\
+
+\ascline{1pt}{000000}{1-10}\endfirsthead 
+
+\ascline{1pt}{000000}{1-10}
+
+\multicolumn{1}{>{\raggedright}m{\dimexpr 1in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{\ }}} & \multicolumn{3}{>{\centering}m{\dimexpr 3in+4\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{Modèle\ A}}} & \multicolumn{3}{>{\centering}m{\dimexpr 3in+4\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{Modèle\ B}}} & \multicolumn{3}{>{\centering}m{\dimexpr 3in+4\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{Modèle\ C}}} \\
+
+\ascline{1pt}{000000}{1-10}
+
+
+
+\multicolumn{1}{>{\raggedright}m{\dimexpr 1in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{\textbf{Characteristic}}}} & \multicolumn{1}{>{\centering}m{\dimexpr 1in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{\textbf{Beta}}}} & \multicolumn{1}{>{\centering}m{\dimexpr 1in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{\textbf{95\%\ CI}}}\textcolor[HTML]{000000}{\textsuperscript{\fontsize{11}{11}\selectfont{1}}}} & \multicolumn{1}{>{\centering}m{\dimexpr 1in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{\textbf{p-value}}}} & \multicolumn{1}{>{\centering}m{\dimexpr 1in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{\textbf{Beta}}}} & \multicolumn{1}{>{\centering}m{\dimexpr 1in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{\textbf{95\%\ CI}}}\textcolor[HTML]{000000}{\textsuperscript{\fontsize{11}{11}\selectfont{1}}}} & \multicolumn{1}{>{\centering}m{\dimexpr 1in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{\textbf{p-value}}}} & \multicolumn{1}{>{\centering}m{\dimexpr 1in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{\textbf{Beta}}}} & \multicolumn{1}{>{\centering}m{\dimexpr 1in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{\textbf{95\%\ CI}}}\textcolor[HTML]{000000}{\textsuperscript{\fontsize{11}{11}\selectfont{1}}}} & \multicolumn{1}{>{\centering}m{\dimexpr 1in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{\textbf{p-value}}}} \\
+
+\ascline{1pt}{000000}{1-10}\endhead
+
+
+
+\multicolumn{10}{>{\raggedright}m{\dimexpr 10in+18\tabcolsep}}{\textcolor[HTML]{000000}{\textsuperscript{\fontsize{11}{11}\selectfont{1}}}\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{CI\ =\ Confidence\ Interval}}} \\
+
+\endfoot
+
+
+
+\multicolumn{1}{>{\raggedright}p{\dimexpr 1in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{groupe}}} & \multicolumn{1}{>{\centering}p{\dimexpr 1in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{0.05}}} & \multicolumn{1}{>{\centering}p{\dimexpr 1in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{-0.66,\ 0.75}}} & \multicolumn{1}{>{\centering}p{\dimexpr 1in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{0.9}}} & \multicolumn{1}{>{\centering}p{\dimexpr 1in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{0.12}}} & \multicolumn{1}{>{\centering}p{\dimexpr 1in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{-0.58,\ 0.83}}} & \multicolumn{1}{>{\centering}p{\dimexpr 1in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{0.7}}} & \multicolumn{1}{>{\centering}p{\dimexpr 1in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{0.05}}} & \multicolumn{1}{>{\centering}p{\dimexpr 1in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{-0.67,\ 0.77}}} & \multicolumn{1}{>{\centering}p{\dimexpr 1in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{0.9}}} \\
+
+
+
+
+
+\multicolumn{1}{>{\raggedright}p{\dimexpr 1in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{age}}} & \multicolumn{1}{>{\centering}p{\dimexpr 1in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{}}} & \multicolumn{1}{>{\centering}p{\dimexpr 1in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{}}} & \multicolumn{1}{>{\centering}p{\dimexpr 1in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{}}} & \multicolumn{1}{>{\centering}p{\dimexpr 1in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{0.00}}} & \multicolumn{1}{>{\centering}p{\dimexpr 1in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{-0.06,\ 0.06}}} & \multicolumn{1}{>{\centering}p{\dimexpr 1in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{>0.9}}} & \multicolumn{1}{>{\centering}p{\dimexpr 1in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{0.01}}} & \multicolumn{1}{>{\centering}p{\dimexpr 1in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{-0.05,\ 0.07}}} & \multicolumn{1}{>{\centering}p{\dimexpr 1in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{0.8}}} \\
+
+
+
+
+
+\multicolumn{1}{>{\raggedright}p{\dimexpr 1in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{sex}}} & \multicolumn{1}{>{\centering}p{\dimexpr 1in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{}}} & \multicolumn{1}{>{\centering}p{\dimexpr 1in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{}}} & \multicolumn{1}{>{\centering}p{\dimexpr 1in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{}}} & \multicolumn{1}{>{\centering}p{\dimexpr 1in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{-0.95}}} & \multicolumn{1}{>{\centering}p{\dimexpr 1in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{-2.1,\ 0.17}}} & \multicolumn{1}{>{\centering}p{\dimexpr 1in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{0.10}}} & \multicolumn{1}{>{\centering}p{\dimexpr 1in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{-0.83}}} & \multicolumn{1}{>{\centering}p{\dimexpr 1in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{-2.0,\ 0.31}}} & \multicolumn{1}{>{\centering}p{\dimexpr 1in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{0.15}}} \\
+
+
+
+
+
+\multicolumn{1}{>{\raggedright}p{\dimexpr 1in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{district}}} & \multicolumn{1}{>{\centering}p{\dimexpr 1in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{}}} & \multicolumn{1}{>{\centering}p{\dimexpr 1in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{}}} & \multicolumn{1}{>{\centering}p{\dimexpr 1in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{}}} & \multicolumn{1}{>{\centering}p{\dimexpr 1in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{}}} & \multicolumn{1}{>{\centering}p{\dimexpr 1in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{}}} & \multicolumn{1}{>{\centering}p{\dimexpr 1in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{}}} & \multicolumn{1}{>{\centering}p{\dimexpr 1in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{0.09}}} & \multicolumn{1}{>{\centering}p{\dimexpr 1in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{-0.07,\ 0.25}}} & \multicolumn{1}{>{\centering}p{\dimexpr 1in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{0.3}}} \\
+
+\ascline{1pt}{000000}{1-10}
+
+
+
+\end{longtable}
+
+
+
+\arrayrulecolor[HTML]{000000}
+
+\global\setlength{\arrayrulewidth}{\Oldarrayrulewidth}
+
+\global\setlength{\tabcolsep}{\Oldtabcolsep}
+
+\renewcommand*{\arraystretch}{1}
+
+\hypertarget{partie-3}{%
+\section{PARTIE 3}\label{partie-3}}
+
+Dans cette section j'ai creer un fichier de code Ivana\_KUETE\_app pour
+l'application et j'ai uniquement utiliser les données de la base
+ACELD;CVS
+
+\end{document}
